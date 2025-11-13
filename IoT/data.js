@@ -50,7 +50,7 @@ const quizData = {
             { type: 'fill', q: "5. The Python library used to easily control GPIO pins is called __________.", answer: "gpiozero" },
             { type: 'fill', q: "6. The default username on Raspberry Pi OS is __________.", answer: "pi" },
             // تم التعديل باستخدام HTML Entities
-            { type: 'fill', q: "7. The command used to connect remotely to a Raspberry Pi via SSH is __________.", answer: "ssh pi@&lt;IP address&gt;" },
+            { type: 'fill', q: "7. The command used to connect remotely to a Raspberry Pi via SSH is __________.", answer: "ssh pi@<IP address>" },
             { type: 'fill', q: "8. The gpiozero library in Python uses the __________ numbering system by default.", answer: "BCM numbering (GPIO numbers)" },
             { type: 'fill', q: "9. The command that turns on an LED connected to GPIO17 using gpiozero is __________.", answer: "led.on()" },
             { type: 'fill', q: "10. The command used to install a Python library such as paho-mqtt is __________.", answer: "pip install paho-mqtt" },
@@ -82,3 +82,86 @@ const quizData = {
         ]
     }
 };
+
+/**
+ * دالة لخلط (Shuffling) مصفوفة ما عشوائياً (Fisher-Yates (Knuth) Shuffle).
+ * @param {Array} array المصفوفة المراد خلطها.
+ * @returns {Array} المصفوفة بعد الخلط العشوائي.
+ */
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+}
+
+/**
+ * تقوم بإنشاء ورقة مراجعة شاملة (REV Sheet) مكونة من 60 سؤالاً عشوائياً.
+ *
+ * @param {Object} data كائن البيانات quizData.
+ * @returns {Array} مصفوفة الأسئلة الموحدة والمختلطة مع تحديد مصدر الدرس.
+ */
+function generateRevSheet(data) {
+    let allQuestions = [];
+
+    // 1. دمج جميع الأسئلة من جميع الدروس في مصفوفة واحدة
+    for (const key in data) {
+        if (key.startsWith('tutorial-')) {
+            const tutorialData = data[key];
+            const originalTutorialName = tutorialData.title;
+
+            tutorialData.data.forEach(question => {
+                // إضافة مصدر السؤال لسهولة المراجعة
+                allQuestions.push({
+                    q: question.q,
+                    answer: question.answer,
+                    tutorial: originalTutorialName // مثلاً "Tutorial 2"
+                });
+            });
+        }
+    }
+
+    // 2. خلط الأسئلة عشوائياً
+    const shuffledQuestions = shuffleArray(allQuestions);
+
+    // 3. تحديد العدد النهائي المطلوب (60 سؤالاً)
+    const finalRevSheet = shuffledQuestions.slice(0, 60);
+
+    return finalRevSheet;
+}
+
+/**
+ * دالة لعرض ورقة المراجعة في شكل جدول (لبيئة المتصفح/Node.js).
+ * @param {Array} revSheet مصفوفة أسئلة ورقة المراجعة.
+ * @param {string} courseTitle عنوان المقرر.
+ */
+function displayRevSheet(revSheet, courseTitle) {
+    console.log(`\n======================================================`);
+    console.log(`📝 ورقة المراجعة الشاملة (REV Sheet) لمادة ${courseTitle}`);
+    console.log(`العدد الإجمالي للأسئلة: ${revSheet.length}`);
+    console.log(`======================================================\n`);
+
+    // إعداد البيانات للعرض في شكل جدول
+    const tableData = revSheet.map((item, index) => ({
+        'الرقم': index + 1,
+        'السؤال': item.q,
+        'الإجابة': item.answer,
+        'الدرس الأصلي': item.tutorial
+    }));
+
+    // استخدام console.table للعرض الجيد في المتصفح أو بيئة Node.js الحديثة
+    console.table(tableData);
+
+    // لتوفير مخرج نصي بسيط إذا لم يكن console.table متاحًا:
+    // tableData.forEach(row => {
+    //     console.log(`\nالرقم: ${row['الرقم']}`);
+    //     console.log(`السؤال: ${row['السؤال']}`);
+    //     console.log(`الإجابة: ${row['الإجابة']}`);
+    //     console.log(`الدرس الأصلي: ${row['الدرس الأصلي']}`);
+    // });
+}
+
+// تنفيذ الدوال
+const revSheet = generateRevSheet(quizData);
+displayRevSheet(revSheet, quizData.courseTitle);
