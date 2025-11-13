@@ -1,6 +1,19 @@
 const quizData = {
     courseTitle: "IoT",
-    'tutorial-1': {
+  'tutorial-1': {
+    title: "Tutorial 1",
+    data: [
+        { type: 'fill', q: "3. MQTT operates on a _________ / _________ communication model, where devices publish data to a broker and other devices subscribe to receive it.", answer: "Publish / Subscribe" },
+        { type: 'fill', q: "34. Compared to HTTP, MQTT consumes _________ bandwidth and is more suitable for _________ devices.", answer: "Less; low-power or constrained" },
+        { type: 'fill', q: "35. Edge computing processes data _________ the device to reduce latency and increase _________.", answer: "Near; privacy" },
+        { type: 'fill', q: "36. In a hybrid IoT system, the edge handles _________ processing, while the cloud performs _________ analytics and storage.", answer: "Real-time; long-term" },
+        { type: 'fill', q: "37. The communication layer in an IoT architecture is responsible for connecting devices through protocols such as _________, _________, or _________.", answer: "Wi-Fi, Zigbee, LTE" },
+        { type: 'fill', q: "38. FreeRTOS manages _________ tasks on IoT devices, while Node-RED provides a _________ interface for flow-based programming.", answer: "Real-time; visual" },
+        { type: 'fill', q: "39. In the smart agriculture case study, soil moisture and temperature sensors send data to an Arduino, which activates actuators like _________ and _________ to control irrigation.", answer: "Relays; solenoid valves" },
+        { type: 'fill', q: "40. To ensure system robustness, IoT devices must include _________ calibration, redundancy, and _________ protection.", answer: "Sensor; environmental" }
+    ]
+},
+    'tutorial-2': {
         title: "Tutorial 2",
         data: [
             { type: 'fill', q: "1. HTTP uses the __________ communication model, where a client sends a request and the server responds.", answer: "Request–Response" },
@@ -20,7 +33,7 @@ const quizData = {
             { type: 'fill', q: "15. CoAP ensures security using __________, which protects messages sent over UDP.", answer: "DTLS (Datagram Transport Layer Security)" }
         ]
     },
-    'tutorial-2': {
+    'tutorial-3': {
         title: "Tutorial 3",
         data: [
             { type: 'fill', q: "1. An edge device in an IoT system is used to sense, process, and send __________.", answer: "Data locally" },
@@ -40,7 +53,7 @@ const quizData = {
             { type: 'fill', q: "15. The loop() function in Arduino runs __________ after setup() as long as the board is powered.", answer: "Repeatedly" }
         ]
     },
-    'tutorial-3': {
+    'tutorial-4': {
         title: "Tutorial 4",
         data: [
             { type: 'fill', q: "1. A Raspberry Pi is best described as a __________ that can run an operating system.", answer: "A single-board computer that can run an operating system" },
@@ -61,7 +74,7 @@ const quizData = {
             { type: 'fill', q: "15. Raspberry Pi cannot directly perform low-level analog-to-digital conversion because it lacks a built-in __________.", answer: "ADC (Analog-to-Digital Converter)" }
         ]
     },
-    'tutorial-4': {
+    'tutorial-5': {
         title: "Tutorial 5",
         data: [
             { type: 'fill', q: "1. The primary role of the edge layer in IoT is __________.", answer: "Sensor data collection and initial processing" },
