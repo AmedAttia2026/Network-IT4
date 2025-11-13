@@ -1,5 +1,5 @@
 const quizData = {
-    courseTitle: "IoT Architecture & Protocols IoT Programming",
+    courseTitle: "IoT",
     'tutorial-1': {
         title: "Tutorial 2",
         data: [
@@ -80,4 +80,5 @@ const quizData = {
             { type: 'fill', q: "15. One major advantage of cloud computing in IoT is __________.", answer: "Infinite storage and global data access" }
         ]
     }
+
 };
