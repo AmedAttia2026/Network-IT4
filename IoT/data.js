@@ -1,12 +1,7 @@
-/**
- * قاعدة بيانات أسئلة اختبار إنترنت الأشياء (IoT)
- * تم تحديثها لإضافة درس خامس عشوائي وشامل (Tutorial 6).
- */
 const quizData = {
     courseTitle: "IoT",
-    // ... الدروس الأربعة الأصلية (لم يتم تضمينها هنا لتجنب التكرار، لكنها باقية في الكود كاملاً) ...
     'tutorial-1': {
-        title: "Tutorial 2: Communication Protocols",
+        title: "Tutorial 2",
         data: [
             { type: 'fill', q: "1. HTTP uses the __________ communication model, where a client sends a request and the server responds.", answer: "Request–Response" },
             { type: 'fill', q: "2. In MQTT, the component that manages message routing between publishers and subscribers is called the __________.", answer: "Broker" },
@@ -26,7 +21,7 @@ const quizData = {
         ]
     },
     'tutorial-2': {
-        title: "Tutorial 3: Arduino Basics",
+        title: "Tutorial 3",
         data: [
             { type: 'fill', q: "1. An edge device in an IoT system is used to sense, process, and send __________.", answer: "Data locally" },
             { type: 'fill', q: "2. The main microcontroller used in the Arduino Uno board is __________.", answer: "ATmega328P" },
@@ -46,7 +41,7 @@ const quizData = {
         ]
     },
     'tutorial-3': {
-        title: "Tutorial 4: Raspberry Pi and MQTT",
+        title: "Tutorial 4",
         data: [
             { type: 'fill', q: "1. A Raspberry Pi is best described as a __________ that can run an operating system.", answer: "A single-board computer that can run an operating system" },
             { type: 'fill', q: "2. The abbreviation GPIO stands for __________.", answer: "General Purpose Input/Output" },
@@ -54,7 +49,8 @@ const quizData = {
             { type: 'fill', q: "4. The most commonly used programming language for Raspberry Pi IoT projects is __________.", answer: "Python" },
             { type: 'fill', q: "5. The Python library used to easily control GPIO pins is called __________.", answer: "gpiozero" },
             { type: 'fill', q: "6. The default username on Raspberry Pi OS is __________.", answer: "pi" },
-            { type: 'fill', q: "7. The command used to connect remotely to a Raspberry Pi via SSH is __________.", answer: "ssh pi@<IP address>" },
+            // تم التعديل باستخدام HTML Entities
+            { type: 'fill', q: "7. The command used to connect remotely to a Raspberry Pi via SSH is __________.", answer: "ssh pi@&lt;IP address&gt;" },
             { type: 'fill', q: "8. The gpiozero library in Python uses the __________ numbering system by default.", answer: "BCM numbering (GPIO numbers)" },
             { type: 'fill', q: "9. The command that turns on an LED connected to GPIO17 using gpiozero is __________.", answer: "led.on()" },
             { type: 'fill', q: "10. The command used to install a Python library such as paho-mqtt is __________.", answer: "pip install paho-mqtt" },
@@ -66,7 +62,7 @@ const quizData = {
         ]
     },
     'tutorial-4': {
-        title: "Tutorial 5: Fog and Cloud Architecture",
+        title: "Tutorial 5",
         data: [
             { type: 'fill', q: "1. The primary role of the edge layer in IoT is __________.", answer: "Sensor data collection and initial processing" },
             { type: 'fill', q: "2. The fog layer in IoT architecture acts as a __________.", answer: "Local gateway or intermediate processing node" },
@@ -83,72 +79,6 @@ const quizData = {
             { type: 'fill', q: "13. Data is transmitted between devices using MQTT over the transport layer protocol __________.", answer: "TCP" },
             { type: 'fill', q: "14. The IoT communication model that allows many devices to share one central broker is __________.", answer: "Publish–Subscribe" },
             { type: 'fill', q: "15. One major advantage of cloud computing in IoT is __________.", answer: "Infinite storage and global data access" }
-        ]
-    },
-    // الدرس الجديد: اختبار شامل عشوائي (60 سؤال MCQ)
-    'tutorial-5': {
-        title: "Tutorial 6: Comprehensive Random Quiz (60 MCQs)",
-        data: [
-            { type: 'mcq', q: "HTTP uses the __________ communication model, where a client sends a request and the server responds.", options: ["Request–Response", "Publish–Subscribe", "Peer-to-Peer"], answer: "Request–Response" },
-            { type: 'mcq', q: "In MQTT, the component that manages message routing between publishers and subscribers is called the __________.", options: ["Broker", "Actuator", "Client"], answer: "Broker" },
-            { type: 'mcq', q: "CoAP is designed to work over the __________ transport protocol for lightweight communication.", options: ["UDP", "TCP", "HTTP"], answer: "UDP" },
-            { type: 'mcq', q: "The protocol best suited for constrained, battery-powered IoT devices is __________.", options: ["CoAP", "HTTP", "AMQP"], answer: "CoAP" },
-            { type: 'mcq', q: "MQTT typically runs over the __________ transport protocol to ensure reliable message delivery.", options: ["TCP", "UDP", "IP"], answer: "TCP" },
-            { type: 'mcq', q: "In MQTT, “QoS” stands for __________, which defines reliability levels for message delivery.", options: ["Quality of Service", "Query over Streaming", "Quantity of Sensors"], answer: "Quality of Service" },
-            { type: 'mcq', q: "6LoWPAN is used for __________ over low-power wireless networks.", options: ["IPv6 compression", "Signal Encryption", "Data Aggregation"], answer: "IPv6 compression" },
-            { type: 'mcq', q: "The protocol that provides message queuing and routing for enterprise IoT systems is __________.", options: ["AMQP", "CoAP", "HTTP"], answer: "AMQP" },
-            { type: 'mcq', q: "The __________ layer of the OSI model handles reliable data transfer in IoT networks.", options: ["Transport", "Application", "Physical"], answer: "Transport" },
-            { type: 'mcq', q: "The perception layer of IoT architecture mainly deals with __________ and __________.", options: ["Sensing and Actuating", "Data Analytics", "Cloud Storage"], answer: "Sensing and Actuating" },
-            { type: 'mcq', q: "The protocol that uses REST-style methods (GET, POST, PUT, DELETE) is __________.", options: ["CoAP", "MQTT", "AMQP"], answer: "CoAP" },
-            { type: 'mcq', q: "The main drawback of HTTP for IoT applications is its __________ and __________ use.", options: ["High overhead and energy use", "Low latency", "Strong security"], answer: "High overhead and energy use" },
-            { type: 'mcq', q: "The __________ layer defines the physical transmission medium, such as wires or radio waves.", options: ["Physical", "Transport", "Network"], answer: "Physical" },
-            { type: 'mcq', q: "MQTT messages are organized by __________, which act as logical channels for communication.", options: ["Topics", "Routes", "Segments"], answer: "Topics" },
-            { type: 'mcq', q: "CoAP ensures security using __________, which protects messages sent over UDP.", options: ["DTLS (Datagram Transport Layer Security)", "TLS", "HTTP"], answer: "DTLS (Datagram Transport Layer Security)" },
-            { type: 'mcq', q: "An edge device in an IoT system is used to sense, process, and send __________.", options: ["Data locally", "Cloud commands", "Enterprise queries"], answer: "Data locally" },
-            { type: 'mcq', q: "The main microcontroller used in the Arduino Uno board is __________.", options: ["ATmega328P", "ESP32", "Raspberry Pi"], answer: "ATmega328P" },
-            { type: 'mcq', q: "Every Arduino program (sketch) includes two main functions: __________ and __________.", options: ["setup(), loop()", "start(), main()", "begin(), end()"], answer: "setup(), loop()" },
-            { type: 'mcq', q: "The function used to read analog input from a sensor is __________.", options: ["analogRead()", "digitalRead()", "pinMode()"], answer: "analogRead()" },
-            { type: 'mcq', q: "The command Serial.begin(9600); is used to start __________ communication at a baud rate of 9600.", options: ["Serial", "USB", "Ethernet"], answer: "Serial" },
-            { type: 'mcq', q: "The abbreviation PWM stands for __________.", options: ["Pulse Width Modulation", "Power Wave Management", "Protocol Working Model"], answer: "Pulse Width Modulation" },
-            { type: 'mcq', q: "The DHT11 sensor provides data as a __________ signal.", options: ["Digital", "Analog", "PWM"], answer: "Digital" },
-            { type: 'mcq', q: "The main role of the ADC (Analog-to-Digital Converter) in Arduino is to convert analog signals into __________ data.", options: ["Digital", "Analog", "Binary"], answer: "Digital" },
-            { type: 'mcq', q: "An actuator is a device that performs a physical __________ based on signal input.", options: ["Action", "Measurement", "Calculation"], answer: "Action" },
-            { type: 'mcq', q: "The command digitalWrite(13, HIGH); turns __________ the output at pin 13.", options: ["On", "Off", "Blink"], answer: "On" },
-            { type: 'mcq', q: "The command used to set a pin as input or output in Arduino is __________.", options: ["pinMode()", "digitalWrite()", "analogRead()"], answer: "pinMode()" },
-            { type: 'mcq', q: "The Serial Monitor in Arduino is mainly used to visualize or __________ data output for debugging.", options: ["Debug", "Encrypt", "Compile"], answer: "Debug" },
-            { type: 'mcq', q: "The analogRead() function in Arduino Uno returns values in the range of __________ to __________.", options: ["0 to 1023", "0 to 5", "0 to 255"], answer: "0 to 1023" },
-            { type: 'mcq', q: "The sensor used to measure light intensity is called a(n) __________.", options: ["LDR (Light Dependent Resistor)", "PIR Sensor", "DHT11"], answer: "LDR (Light Dependent Resistor)" },
-            { type: 'mcq', q: "The loop() function in Arduino runs __________ after setup() as long as the board is powered.", options: ["Repeatedly", "Once", "Every hour"], answer: "Repeatedly" },
-            { type: 'mcq', q: "A Raspberry Pi is best described as a __________ that can run an operating system.", options: ["A single-board computer that can run an operating system", "A simple microcontroller", "A specialized sensor"], answer: "A single-board computer that can run an operating system" },
-            { type: 'mcq', q: "The abbreviation GPIO stands for __________.", options: ["General Purpose Input/Output", "Global Power Interface Operations", "Graphical Processing Input/Output"], answer: "General Purpose Input/Output" },
-            { type: 'mcq', q: "On a Raspberry Pi, a digital HIGH signal corresponds to a voltage level of __________ volts.", options: ["3.3 volts.", "5 volts.", "1.8 volts."], answer: "3.3 volts." },
-            { type: 'mcq', q: "The most commonly used programming language for Raspberry Pi IoT projects is __________.", options: ["Python", "C++", "Java"], answer: "Python" },
-            { type: 'mcq', q: "The Python library used to easily control GPIO pins is called __________.", options: ["gpiozero", "pyserial", "requests"], answer: "gpiozero" },
-            { type: 'mcq', q: "The default username on Raspberry Pi OS is __________.", options: ["pi", "user", "admin"], answer: "pi" },
-            { type: 'mcq', q: "The command used to connect remotely to a Raspberry Pi via SSH is __________.", options: ["ssh pi@<IP address>", "telnet <IP address>", "ftp pi@<IP address>"], answer: "ssh pi@<IP address>" },
-            { type: 'mcq', q: "The gpiozero library in Python uses the __________ numbering system by default.", options: ["BCM numbering (GPIO numbers)", "Physical pin numbering", "Analog numbering"], answer: "BCM numbering (GPIO numbers)" },
-            { type: 'mcq', q: "The command that turns on an LED connected to GPIO17 using gpiozero is __________.", options: ["led.on()", "led.high()", "led.power()"], answer: "led.on()" },
-            { type: 'mcq', q: "The command used to install a Python library such as paho-mqtt is __________.", options: ["pip install paho-mqtt", "npm install paho-mqtt", "apt-get install paho-mqtt"], answer: "pip install paho-mqtt" },
-            { type: 'mcq', q: "The communication protocol used by Raspberry Pi to interact with MQTT brokers is __________.", options: ["MQTT", "HTTP", "CoAP"], answer: "MQTT" },
-            { type: 'mcq', q: "The default baud rate for serial communication with Arduino is __________.", options: ["9600", "115200", "57600"], answer: "9600" },
-            { type: 'mcq', q: "The Python library used for handling serial communication is __________.", options: ["pyserial", "gpiozero", "paho-mqtt"], answer: "pyserial" },
-            { type: 'mcq', q: "In MQTT, the function client.publish() is used to __________.", options: ["Send (publish) messages to a topic", "Receive messages from a topic", "Connect to the broker"], answer: "Send (publish) messages to a topic" },
-            { type: 'mcq', q: "Raspberry Pi cannot directly perform low-level analog-to-digital conversion because it lacks a built-in __________.", options: ["ADC (Analog-to-Digital Converter)", "GPU", "Clock"], answer: "ADC (Analog-to-Digital Converter)" },
-            { type: 'mcq', q: "The primary role of the edge layer in IoT is __________.", options: ["Sensor data collection and initial processing", "Long-term data storage", "Global analytics"], answer: "Sensor data collection and initial processing" },
-            { type: 'mcq', q: "The fog layer in IoT architecture acts as a __________.", options: ["Local gateway or intermediate processing node", "Primary data center", "End-user device"], answer: "Local gateway or intermediate processing node" },
-            { type: 'mcq', q: "The cloud layer is mainly responsible for __________.", options: ["Data aggregation, analytics, and dashboards", "Real-time sensing", "Actuating physical devices"], answer: "Data aggregation, analytics, and dashboards" },
-            { type: 'mcq', q: "An example of fog hardware is __________.", options: ["Raspberry Pi", "Standard Sensor", "Mainframe Server"], answer: "Raspberry Pi" },
-            { type: 'mcq', q: "The main function of the fog layer is to __________.", options: ["Reduce bandwidth use and processing load on the cloud", "Increase cloud storage capacity", "Enable remote software updates"], answer: "Reduce bandwidth use and processing load on the cloud" },
-            { type: 'mcq', q: "The protocol that best suits communication between edge and cloud is __________.", options: ["MQTT", "CoAP", "Bluetooth"], answer: "MQTT" },
-            { type: 'mcq', q: "In IoT systems, HTTP is described as a __________ model with higher overhead.", options: ["Request/Response", "Publish/Subscribe", "Peer-to-Peer"], answer: "Request/Response" },
-            { type: 'mcq', q: "In MQTT, the device that manages message routing is called a __________.", options: ["Broker", "Subscriber", "Publisher"], answer: "Broker" },
-            { type: 'mcq', q: "A cloud IoT platform example is __________.", options: ["Thingspeak", "Arduino IDE", "Python IDE"], answer: "Thingspeak" },
-            { type: 'mcq', q: "The connectivity technology that offers the longest range but lowest data rate is __________.", options: ["LoRaWAN", "Wi-Fi", "Bluetooth"], answer: "LoRaWAN" },
-            { type: 'mcq', q: "One advantage of fog computing is that it __________.", options: ["Reduces latency by local processing", "Requires no power", "Simplifies cloud integration"], answer: "Reduces latency by local processing" },
-            { type: 'mcq', q: "The component that is NOT part of IoT connectivity layers is __________.", options: ["BIOS Layer", "Application Layer", "Transport Layer"], answer: "BIOS Layer" },
-            { type: 'mcq', q: "Data is transmitted between devices using MQTT over the transport layer protocol __________.", options: ["TCP", "UDP", "CoAP"], answer: "TCP" },
-            { type: 'mcq', q: "The IoT communication model that allows many devices to share one central broker is __________.", options: ["Publish–Subscribe", "Request–Response", "Client–Server"], answer: "Publish–Subscribe" },
-            { type: 'mcq', q: "One major advantage of cloud computing in IoT is __________.", options: ["Infinite storage and global data access", "Zero latency", "Reduced cost of sensors"], answer: "Infinite storage and global data access" }
         ]
     }
 };
