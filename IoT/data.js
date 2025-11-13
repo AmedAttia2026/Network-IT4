@@ -43,9 +43,9 @@ const quizData = {
     'tutorial-3': {
         title: "Tutorial 4",
         data: [
-            { type: 'fill', q: "1. A Raspberry Pi is best described as a __________ that can run an operating system.", answer: "A single-board computer" },
+            { type: 'fill', q: "1. A Raspberry Pi is best described as a __________ that can run an operating system.", answer: "A single-board computer that can run an operating system" },
             { type: 'fill', q: "2. The abbreviation GPIO stands for __________.", answer: "General Purpose Input/Output" },
-            { type: 'fill', q: "3. On a Raspberry Pi, a digital HIGH signal corresponds to a voltage level of __________ volts.", answer: "3.3" },
+            { type: 'fill', q: "3. On a Raspberry Pi, a digital HIGH signal corresponds to a voltage level of __________ volts.", answer: "3.3 volts." },
             { type: 'fill', q: "4. The most commonly used programming language for Raspberry Pi IoT projects is __________.", answer: "Python" },
             { type: 'fill', q: "5. The Python library used to easily control GPIO pins is called __________.", answer: "gpiozero" },
             { type: 'fill', q: "6. The default username on Raspberry Pi OS is __________.", answer: "pi" },
@@ -82,3 +82,4 @@ const quizData = {
         ]
     }
 };
+
