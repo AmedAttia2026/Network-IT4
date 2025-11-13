@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Subject Preview</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body { margin:0; padding:0; font-family:'Cairo',sans-serif; background:#1a2a6c; position:relative; }
+    
+    /* سهم رجوع دائري محسّن */
+    .back-arrow {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, #ff512f, #dd2476);
+      color: #fff;
+      font-size: 2em;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-decoration: none;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.6);
+      transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+      z-index: 10;
+    }
+
+    .back-arrow:hover {
+      transform: rotate(-15deg) scale(1.2);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.8);
+      background: linear-gradient(135deg, #dd2476, #ff512f);
+    }
+
+    h1 { text-align:center; color:#fff; padding:20px; font-size:2em; margin-top:0; }
+    iframe { width:100%; height:calc(100vh - 80px); border:none; display:block; }
+  </style>
+</head>
+<body>
+  <a class="back-arrow" href="Subject.html">&#8592;</a>
+  <h1 id="title"></h1>
+  <iframe id="folderIframe" src=""></iframe>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const folderId = params.get('folder');
+    const subjectName = params.get('name');
+    document.getElementById('title').textContent = subjectName;
+    document.getElementById('folderIframe').src = `https://drive.google.com/embeddedfolderview?id=${folderId}#grid`;
+  </script>
+</body>
+</html>
