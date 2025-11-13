@@ -49,7 +49,7 @@ const quizData = {
             { type: 'fill', q: "4. The most commonly used programming language for Raspberry Pi IoT projects is __________.", answer: "Python" },
             { type: 'fill', q: "5. The Python library used to easily control GPIO pins is called __________.", answer: "gpiozero" },
             { type: 'fill', q: "6. The default username on Raspberry Pi OS is __________.", answer: "pi" },
-            { type: 'fill', q: "7. The command used to connect remotely to a Raspberry Pi via SSH is __________.", answer: "ssh pi@<IP address>" },
+            { type: 'fill', q: "7. The command used to connect remotely to a Raspberry Pi via SSH is __________.", answer: "'ssh pi@<IP address>'" },
             { type: 'fill', q: "8. The gpiozero library in Python uses the __________ numbering system by default.", answer: "BCM numbering (GPIO numbers)" },
             { type: 'fill', q: "9. The command that turns on an LED connected to GPIO17 using gpiozero is __________.", answer: "led.on()" },
             { type: 'fill', q: "10. The command used to install a Python library such as paho-mqtt is __________.", answer: "pip install paho-mqtt" },
@@ -82,3 +82,4 @@ const quizData = {
     }
 
 };
+
