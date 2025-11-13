@@ -49,7 +49,6 @@ const quizData = {
             { type: 'fill', q: "4. The most commonly used programming language for Raspberry Pi IoT projects is __________.", answer: "Python" },
             { type: 'fill', q: "5. The Python library used to easily control GPIO pins is called __________.", answer: "gpiozero" },
             { type: 'fill', q: "6. The default username on Raspberry Pi OS is __________.", answer: "pi" },
-            // تم التعديل باستخدام HTML Entities
             { type: 'fill', q: "7. The command used to connect remotely to a Raspberry Pi via SSH is __________.", answer: "ssh pi@<IP address>" },
             { type: 'fill', q: "8. The gpiozero library in Python uses the __________ numbering system by default.", answer: "BCM numbering (GPIO numbers)" },
             { type: 'fill', q: "9. The command that turns on an LED connected to GPIO17 using gpiozero is __________.", answer: "led.on()" },
@@ -80,88 +79,70 @@ const quizData = {
             { type: 'fill', q: "14. The IoT communication model that allows many devices to share one central broker is __________.", answer: "Publish–Subscribe" },
             { type: 'fill', q: "15. One major advantage of cloud computing in IoT is __________.", answer: "Infinite storage and global data access" }
         ]
+    },
+    'tutorial-REV': {
+        title: "Review Quiz",
+        data: [
+            { type: 'fill', q: "1. The main microcontroller used in the Arduino Uno board is __________.", answer: "ATmega328P" },
+            { type: 'fill', q: "2. The component that manages message routing in MQTT is called the __________.", answer: "Broker" },
+            { type: 'fill', q: "3. The main drawback of HTTP for IoT applications is its __________ and __________ use.", answer: "High overhead and energy use" },
+            { type: 'fill', q: "4. The protocol that uses REST-style methods (GET, POST, PUT, DELETE) is __________.", answer: "CoAP" },
+            { type: 'fill', q: "5. The function used to read analog input from a sensor is __________.", answer: "analogRead()" },
+            { type: 'fill', q: "6. The default username on Raspberry Pi OS is __________.", answer: "pi" },
+            { type: 'fill', q: "7. The command used to set a pin as input or output in Arduino is __________.", answer: "pinMode()" },
+            { type: 'fill', q: "8. The protocol best suited for constrained, battery-powered IoT devices is __________.", answer: "CoAP" },
+            { type: 'fill', q: "9. The main function of the fog layer is to __________.", answer: "Reduce bandwidth use and processing load on the cloud" },
+            { type: 'fill', q: "10. The abbreviation GPIO stands for __________.", answer: "General Purpose Input/Output" },
+            { type: 'fill', q: "11. The protocol that provides message queuing and routing for enterprise IoT systems is __________.", answer: "AMQP" },
+            { type: 'fill', q: "12. The Python library used to easily control GPIO pins is called __________.", answer: "gpiozero" },
+            { type: 'fill', q: "13. MQTT typically runs over the __________ transport protocol to ensure reliable message delivery.", answer: "TCP" },
+            { type: 'fill', q: "14. The command Serial.begin(9600); is used to start __________ communication at a baud rate of 9600.", answer: "Serial" },
+            { type: 'fill', q: "15. The command that turns on an LED connected to GPIO17 using gpiozero is __________.", answer: "led.on()" },
+            { type: 'fill', q: "16. The connectivity technology that offers the longest range but lowest data rate is __________.", answer: "LoRaWAN" },
+            { type: 'fill', q: "17. An edge device in an IoT system is used to sense, process, and send __________.", answer: "Data locally" },
+            { type: 'fill', q: "18. The fog layer in IoT architecture acts as a __________.", answer: "Local gateway or intermediate processing node" },
+            { type: 'fill', q: "19. The analogRead() function in Arduino Uno returns values in the range of __________ to __________.", answer: "0 to 1023" },
+            { type: 'fill', q: "20. The most commonly used programming language for Raspberry Pi IoT projects is __________.", answer: "Python" },
+            { type: 'fill', q: "21. CoAP is designed to work over the __________ transport protocol for lightweight communication.", answer: "UDP" },
+            { type: 'fill', q: "22. The protocol that best suits communication between edge and cloud is __________.", answer: "MQTT" },
+            { type: 'fill', q: "23. 6LoWPAN is used for __________ over low-power wireless networks.", answer: "IPv6 compression" },
+            { type: 'fill', q: "24. An actuator is a device that performs a physical __________ based on signal input.", answer: "Action" },
+            { type: 'fill', q: "25. Every Arduino program (sketch) includes two main functions: __________ and __________.", answer: "setup(), loop()" },
+            { type: 'fill', q: "26. The abbreviation PWM stands for __________.", answer: "Pulse Width Modulation" },
+            { type: 'fill', q: "27. In MQTT, the device that manages message routing is called a __________.", answer: "Broker" },
+            { type: 'fill', q: "28. The cloud layer is mainly responsible for __________.", answer: "Data aggregation, analytics, and dashboards" },
+            { type: 'fill', q: "29. The command used to install a Python library such as paho-mqtt is __________.", answer: "pip install paho-mqtt" },
+            { type: 'fill', q: "30. The Serial Monitor in Arduino is mainly used to visualize or __________ data output for debugging.", answer: "Debug" },
+            { type: 'fill', q: "31. The main role of the ADC (Analog-to-Digital Converter) in Arduino is to convert analog signals into __________ data.", answer: "Digital" },
+            { type: 'fill', q: "32. The IoT communication model that allows many devices to share one central broker is __________.", answer: "Publish–Subscribe" },
+            { type: 'fill', q: "33. In MQTT, “QoS” stands for __________, which defines reliability levels for message delivery.", answer: "Quality of Service" },
+            { type: 'fill', q: "34. CoAP ensures security using __________, which protects messages sent over UDP.", answer: "DTLS (Datagram Transport Layer Security)" },
+            { type: 'fill', q: "35. The default baud rate for serial communication with Arduino is __________.", answer: "9600" },
+            { type: 'fill', q: "36. The command digitalWrite(13, HIGH); turns __________ the output at pin 13.", answer: "On" },
+            { type: 'fill', q: "37. On a Raspberry Pi, a digital HIGH signal corresponds to a voltage level of __________ volts.", answer: "3.3 volts." },
+            { type: 'fill', q: "38. The communication protocol used by Raspberry Pi to interact with MQTT brokers is __________.", answer: "MQTT" },
+            { type: 'fill', q: "39. The perception layer of IoT architecture mainly deals with __________ and __________.", answer: "Sensing and Actuating" },
+            { type: 'fill', q: "40. Data is transmitted between devices using MQTT over the transport layer protocol __________.", answer: "TCP" },
+            { type: 'fill', q: "41. A Raspberry Pi is best described as a __________ that can run an operating system.", answer: "A single-board computer that can run an operating system" },
+            { type: 'fill', q: "42. The __________ layer defines the physical transmission medium, such as wires or radio waves.", answer: "Physical" },
+            { type: 'fill', q: "43. The sensor used to measure light intensity is called a(n) __________.", answer: "LDR (Light Dependent Resistor)" },
+            { type: 'fill', q: "44. The Python library used for handling serial communication is __________.", answer: "pyserial" },
+            { type: 'fill', q: "45. The loop() function in Arduino runs __________ after setup() as long as the board is powered.", answer: "Repeatedly" },
+            { type: 'fill', q: "46. The command used to connect remotely to a Raspberry Pi via SSH is __________.", answer: "ssh pi@<IP address>" },
+            { type: 'fill', q: "47. One advantage of fog computing is that it __________.", answer: "Reduces latency by local processing" },
+            { type: 'fill', q: "48. The primary role of the edge layer in IoT is __________.", answer: "Sensor data collection and initial processing" },
+            { type: 'fill', q: "49. The DHT11 sensor provides data as a __________ signal.", answer: "Digital" },
+            { type: 'fill', q: "50. MQTT messages are organized by __________, which act as logical channels for communication.", answer: "Topics" },
+            { type: 'fill', q: "51. In IoT systems, HTTP is described as a __________ model with higher overhead.", answer: "Request/Response" },
+            { type: 'fill', q: "52. The component that is NOT part of IoT connectivity layers is __________.", answer: "BIOS Layer" },
+            { type: 'fill', q: "53. The __________ layer of the OSI model handles reliable data transfer in IoT networks.", answer: "Transport" },
+            { type: 'fill', q: "54. An example of fog hardware is __________.", answer: "Raspberry Pi" },
+            { type: 'fill', q: "55. HTTP uses the __________ communication model, where a client sends a request and the server responds.", answer: "Request–Response" },
+            { type: 'fill', q: "56. The gpiozero library in Python uses the __________ numbering system by default.", answer: "BCM numbering (GPIO numbers)" },
+            { type: 'fill', q: "57. In MQTT, the function client.publish() is used to __________.", answer: "Send (publish) messages to a topic" },
+            { type: 'fill', q: "58. Raspberry Pi cannot directly perform low-level analog-to-digital conversion because it lacks a built-in __________.", answer: "ADC (Analog-to-Digital Converter)" },
+            { type: 'fill', q: "59. One major advantage of cloud computing in IoT is __________.", answer: "Infinite storage and global data access" },
+            { type: 'fill', q: "60. A cloud IoT platform example is __________.", answer: "Thingspeak" }
+        ]
     }
 };
-
-/**
- * دالة لخلط (Shuffling) مصفوفة ما عشوائياً (Fisher-Yates (Knuth) Shuffle).
- * @param {Array} array المصفوفة المراد خلطها.
- * @returns {Array} المصفوفة بعد الخلط العشوائي.
- */
-function shuffleArray(array) {
-    for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
-    }
-    return array;
-}
-
-/**
- * تقوم بإنشاء ورقة مراجعة شاملة (REV Sheet) مكونة من 60 سؤالاً عشوائياً.
- *
- * @param {Object} data كائن البيانات quizData.
- * @returns {Array} مصفوفة الأسئلة الموحدة والمختلطة مع تحديد مصدر الدرس.
- */
-function generateRevSheet(data) {
-    let allQuestions = [];
-
-    // 1. دمج جميع الأسئلة من جميع الدروس في مصفوفة واحدة
-    for (const key in data) {
-        if (key.startsWith('tutorial-')) {
-            const tutorialData = data[key];
-            const originalTutorialName = tutorialData.title;
-
-            tutorialData.data.forEach(question => {
-                // إضافة مصدر السؤال لسهولة المراجعة
-                allQuestions.push({
-                    q: question.q,
-                    answer: question.answer,
-                    tutorial: originalTutorialName // مثلاً "Tutorial 2"
-                });
-            });
-        }
-    }
-
-    // 2. خلط الأسئلة عشوائياً
-    const shuffledQuestions = shuffleArray(allQuestions);
-
-    // 3. تحديد العدد النهائي المطلوب (60 سؤالاً)
-    const finalRevSheet = shuffledQuestions.slice(0, 60);
-
-    return finalRevSheet;
-}
-
-/**
- * دالة لعرض ورقة المراجعة في شكل جدول (لبيئة المتصفح/Node.js).
- * @param {Array} revSheet مصفوفة أسئلة ورقة المراجعة.
- * @param {string} courseTitle عنوان المقرر.
- */
-function displayRevSheet(revSheet, courseTitle) {
-    console.log(`\n======================================================`);
-    console.log(`📝 ورقة المراجعة الشاملة (REV Sheet) لمادة ${courseTitle}`);
-    console.log(`العدد الإجمالي للأسئلة: ${revSheet.length}`);
-    console.log(`======================================================\n`);
-
-    // إعداد البيانات للعرض في شكل جدول
-    const tableData = revSheet.map((item, index) => ({
-        'الرقم': index + 1,
-        'السؤال': item.q,
-        'الإجابة': item.answer,
-        'الدرس الأصلي': item.tutorial
-    }));
-
-    // استخدام console.table للعرض الجيد في المتصفح أو بيئة Node.js الحديثة
-    console.table(tableData);
-
-    // لتوفير مخرج نصي بسيط إذا لم يكن console.table متاحًا:
-    // tableData.forEach(row => {
-    //     console.log(`\nالرقم: ${row['الرقم']}`);
-    //     console.log(`السؤال: ${row['السؤال']}`);
-    //     console.log(`الإجابة: ${row['الإجابة']}`);
-    //     console.log(`الدرس الأصلي: ${row['الدرس الأصلي']}`);
-    // });
-}
-
-// تنفيذ الدوال
-const revSheet = generateRevSheet(quizData);
-displayRevSheet(revSheet, quizData.courseTitle);
