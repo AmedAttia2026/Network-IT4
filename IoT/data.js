@@ -3,7 +3,7 @@ const quizData = {
     'tutorial-1': {
         title: "Tutorial 1",
         data: [
-            { type: 'fill', q: "3. MQTT operates on a _________ / _________ communication model, where devices publish data to a broker and other devices subscribe to receive it.", answer: "Publish / Subscribe" },
+            { type: 'fill', q: "33. MQTT operates on a _________ / _________ communication model, where devices publish data to a broker and other devices subscribe to receive it.", answer: "Publish / Subscribe" },
             { type: 'fill', q: "34. Compared to HTTP, MQTT consumes _________ bandwidth and is more suitable for _________ devices.", answer: "Less; low-power or constrained" },
             { type: 'fill', q: "35. Edge computing processes data _________ the device to reduce latency and increase _________.", answer: "Near; privacy" },
             { type: 'fill', q: "36. In a hybrid IoT system, the edge handles _________ processing, while the cloud performs _________ analytics and storage.", answer: "Real-time; long-term" },
@@ -98,3 +98,4 @@ const quizData = {
         ]
     }
 };
+
