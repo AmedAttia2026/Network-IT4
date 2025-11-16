@@ -3,40 +3,58 @@ const quizData = {
   "tutorial-1": {
     title: "tutorial-1",
     data: [
-      // ==== MCQs الأصلية (تم تحويلها إلى fill) ====
+      // ==== MCQs الأصلية (تمت إعادتها إلى MCQs) ====
       {
-        type: "fill", 
-        q: "Which of the following best describes Classical AI? Answer: Systems that rely on hand-coded rules and logic; Systems that learn patterns from data; Neural networks inspired by the human brain; Robots performing physical tasks. The correct option is 0 (first).",
-        answer: "Systems that rely on hand-coded rules and logic"
+        type: "mcq",
+        q: "Which of the following best describes Classical AI?",
+        options: [
+          "Systems that rely on hand-coded rules and logic", // 0
+          "Systems that learn patterns from data",
+          "Neural networks inspired by the human brain",
+          "Robots performing physical tasks"
+        ],
+        correct: 0 
       },
       {
-        type: "fill", 
-        q: "What caused the 'AI Winter'? Answer: Global economic crisis; Unrealistic expectations and lack of computational power; AI becoming too advanced; Overabundance of funding. The correct option is 1 (second).",
-        answer: "Unrealistic expectations and lack of computational power"
+        type: "mcq",
+        q: "What caused the 'AI Winter'?",
+        options: [
+          "Global economic crisis",
+          "Unrealistic expectations and lack of computational power", // 1
+          "AI becoming too advanced",
+          "Overabundance of funding"
+        ],
+        correct: 1
       },
       {
-        type: "fill", 
-        q: "Which of the following is NOT typically considered a key subfield of AI? Answer: Natural Language Processing; Computer Vision; Thermodynamics; Robotics. The correct option is 2 (third).",
-        answer: "Thermodynamics"
+        type: "mcq",
+        q: "Which of the following is NOT typically considered a key subfield of AI?",
+        options: [
+          "Natural Language Processing",
+          "Computer Vision",
+          "Thermodynamics", // 2
+          "Robotics"
+        ],
+        correct: 2
       },
 
-      // ==== True / False (تم تحويلها إلى fill) ====
-      { type: "fill", q: "Machine Learning is a subfield of AI. (True or False)", answer: "True" },
-      { type: "fill", q: "Classical AI relied heavily on data-driven learning from large datasets. (True or False)", answer: "False" },
-      { type: "fill", q: "AI, Data Science, and Analytics are identical fields with no real differences. (True or False)", answer: "False" },
-      { type: "fill", q: "Ethical considerations in AI include fairness, transparency, and avoiding bias. (True or False)", answer: "True" },
-      { type: "fill", q: "The future of AI is universally agreed to be risk-free and without controversy. (True or False)", answer: "False" },
-      { type: "fill", q: "Deep Learning is based on artificial neural networks inspired by the human brain. (True or False)", answer: "True" },
-      { type: "fill", q: "Natural Language Processing (NLP) and Computer Vision are examples of AI subfields. (True or False)", answer: "True" },
-      { type: "fill", q: "Artificial Intelligence aims to create systems that can mimic aspects of human intelligence. (True or False)", answer: "True" },
-      { type: "fill", q: "The 'AI Winter' refers to a period when AI research was thriving due to abundant funding. (True or False)", answer: "False" },
-      { type: "fill", q: "Real AI applications include recommendation systems, virtual assistants, and autonomous vehicles. (True or False)", answer: "True" }
+      // ==== True / False (تم تحويلها إلى MCQs ثنائية الخيار لضمان التنسيق الصحيح) ====
+      { type: "mcq", q: "Machine Learning is a subfield of AI.", options: ["True", "False"], correct: 0 },
+      { type: "mcq", q: "Classical AI relied heavily on data-driven learning from large datasets.", options: ["True", "False"], correct: 1 },
+      { type: "mcq", q: "AI, Data Science, and Analytics are identical fields with no real differences.", options: ["True", "False"], correct: 1 },
+      { type: "mcq", q: "Ethical considerations in AI include fairness, transparency, and avoiding bias.", options: ["True", "False"], correct: 0 },
+      { type: "mcq", q: "The future of AI is universally agreed to be risk-free and without controversy.", options: ["True", "False"], correct: 1 },
+      { type: "mcq", q: "Deep Learning is based on artificial neural networks inspired by the human brain.", options: ["True", "False"], correct: 0 },
+      { type: "mcq", q: "Natural Language Processing (NLP) and Computer Vision are examples of AI subfields.", options: ["True", "False"], correct: 0 },
+      { type: "mcq", q: "Artificial Intelligence aims to create systems that can mimic aspects of human intelligence.", options: ["True", "False"], correct: 0 },
+      { type: "mcq", q: "The 'AI Winter' refers to a period when AI research was thriving due to abundant funding.", options: ["True", "False"], correct: 1 },
+      { type: "mcq", q: "Real AI applications include recommendation systems, virtual assistants, and autonomous vehicles.", options: ["True", "False"], correct: 0 }
     ]
   },
   
-  // ===================================================================================
-  // ====== محتوى Python Sets (تم تحويله إلى type: 'fill' مع وضع الكود في q والإخراج في answer)
-  // ===================================================================================
+  // -----------------------------------------------------------------------------------
+  // ====== محتوى Python Sets (تم الإبقاء عليه كـ type: 'fill' لضمان عمل الأكواد) =======
+  // -----------------------------------------------------------------------------------
   "LEC 3": {
     "lectureTitle": "ARTIFICIAL INTELLIGENCE - Lecture 3: Python Sets",
     "data": [ 
