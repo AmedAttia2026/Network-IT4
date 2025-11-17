@@ -1,576 +1,353 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>منصة تعليمية</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- تعيين خط Inter كخط احتياطي. يمكن استخدام خط Cairo للعربية للحصول على مظهر جذاب. -->
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        /* الأنماط المدمجة والمحدثة لدعم البطاقات (Cards) */
-        :root {
-            --header-bg: #1f2937; /* Gray-800 */
-            --main-bg: #111827; /* Gray-900 */
-            --text-color: #f9fafb; /* Gray-50 */
-            --sidebar-bg: #1f2937; /* Gray-800 */
-            --accent-color: #3b82f6; /* Blue-500 */
-            --secondary-bg: #374151; /* Gray-700 */
-            --grid-gradient: linear-gradient(135deg, #232526, #414345); /* خلفية البطاقة */
-            --card-title-gradient: linear-gradient(90deg, #ff6a00, #ee0979); /* تدرج عنوان البطاقة */
-        }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منصة تعليمية</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* الأنماط المدمجة والمحدثة لدعم البطاقات (Cards) */
+        :root {
+            --header-bg: #1f2937; /* Gray-800 */
+            --main-bg: #111827; /* Gray-900 */
+            --text-color: #f9fafb; /* Gray-50 */
+            --sidebar-bg: #1f2937; /* Gray-800 */
+            --accent-color: #3b82f6; /* Blue-500 */
+            --secondary-bg: #374151; /* Gray-700 */
+            --grid-gradient: linear-gradient(135deg, #232526, #414345); /* خلفية البطاقة */
+            --card-title-gradient: linear-gradient(90deg, #ff6a00, #ee0979); /* تدرج عنوان البطاقة */
+        }
 
-        .dark-mode {
-            background-color: var(--main-bg);
-            color: var(--text-color);
-            font-family: 'Cairo', sans-serif; /* استخدام خط Cairo */
-            transition: background-color 0.3s, color 0.3s;
-        }
+        .dark-mode {
+            background-color: var(--main-bg);
+            color: var(--text-color);
+            font-family: 'Cairo', sans-serif; /* استخدام خط Cairo */
+            transition: background-color 0.3s, color 0.3s;
+        }
 
-        .header-bg {
-            background-color: var(--header-bg);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-        }
+        .header-bg {
+            background-color: var(--header-bg);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
 
-        .header-actions-right, .header-actions-left {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
+        .header-actions-right, .header-actions-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
 
-        .action-button, .font-size-button {
-            padding: 0.5rem 0.75rem;
-            background-color: var(--secondary-bg);
-            color: var(--text-color);
-            border-radius: 0.5rem;
-            font-weight: 600;
-            transition: background-color 0.2s, transform 0.1s;
-        }
+        .action-button, .font-size-button {
+            padding: 0.5rem 0.75rem;
+            background-color: var(--secondary-bg);
+            color: var(--text-color);
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: background-color 0.2s, transform 0.1s;
+        }
 
-        .action-button:hover, .font-size-button:hover {
-            background-color: var(--accent-color);
-        }
+        .action-button:hover, .font-size-button:hover {
+            background-color: var(--accent-color);
+        }
 
-        .home-button {
-            font-size: 1.5rem;
-            line-height: 1;
-        }
+        .home-button {
+            font-size: 1.5rem;
+            line-height: 1;
+        }
 
-        /* إخفاء القائمة الجانبية بالكامل لأننا سنستخدم البطاقات */
-        .sidebar, .sidebar-backdrop {
-            display: none !important;
-        }
-        .hamburger-menu {
-            display: none !important; /* إخفاء زر القائمة */
-        }
+        /* إخفاء القائمة الجانبية بالكامل لأننا سنستخدم البطاقات */
+        .sidebar, .sidebar-backdrop, .hamburger-menu {
+            display: none !important; 
+        }
 
-        .main-container {
-            padding-top: 5rem !important; /* تقليل المساحة بعد إزالة العنوان الفرعي */
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+        .main-container {
+            padding-top: 5rem !important; /* تقليل المساحة بعد إزالة العنوان الفرعي */
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
 
-        /* --- أنماط صفحة البطاقات الرئيسية (Grid View) --- */
-        
-        #grid-view {
-            width: 100%;
-            max-width: 1200px;
-            padding: 2rem 0;
-        }
+        /* --- أنماط صفحة البطاقات الرئيسية (Grid View) --- */
+        
+        #grid-view {
+            width: 100%;
+            max-width: 1200px;
+            padding: 2rem 0;
+        }
 
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 25px;
-            width: 100%;
-        }
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            width: 100%;
+        }
 
-        .card {
-            background: var(--grid-gradient);
-            border-radius: 18px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.6);
-            padding: 30px;
-            text-align: center;
-            color: #bdc3c7;
-            text-decoration: none;
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
-            cursor: pointer;
-            display: block;
-        }
+        .card {
+            background: var(--grid-gradient);
+            border-radius: 18px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+            padding: 30px;
+            text-align: center;
+            color: #bdc3c7;
+            text-decoration: none;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            cursor: pointer;
+            display: block;
+        }
 
-        .card:hover {
-            transform: translateY(-8px) scale(1.03);
-            box-shadow: 0 12px 28px rgba(0,0,0,0.8), 0 0 15px #ff6a00aa; /* إضافة توهج */
-        }
+        .card:hover {
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: 0 12px 28px rgba(0,0,0,0.8), 0 0 15px #ff6a00aa; /* إضافة توهج */
+        }
 
-        .card h2 {
-            margin-top: 0;
-            font-size: 1.6em;
-            background: var(--card-title-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+        .card h2 {
+            margin-top: 0;
+            font-size: 1.6em;
+            background: var(--card-title-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
 
-        .card p { 
-            font-size: 1em; 
-            color: #95a5a6; 
-            margin-top: 0.5rem;
-        }
+        .card p { 
+            font-size: 1em; 
+            color: #95a5a6; 
+            margin-top: 0.5rem;
+        }
 
-        /* --- أنماط محتوى الدرس (Tutorial Content) --- */
+        /* FAB Button */
+        .fab-container {
+            position: fixed;
+            bottom: 20px;
+            left: 20px; /* اليسار للـ RTL */
+            z-index: 100;
+        }
 
-        .content-section {
-            margin-bottom: 2rem;
-            border-radius: 0.75rem;
-            padding: 1.5rem;
-            background-color: var(--secondary-bg);
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
-        }
+        .fab-button {
+            display: none;
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: background-color 0.3s, opacity 0.3s, transform 0.3s;
+        }
 
-        .content-section h3 {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: var(--accent-color);
-            border-bottom: 2px solid var(--accent-color);
-            padding-bottom: 0.5rem;
-        }
+        .fab-button:hover {
+            background-color: #2563eb;
+            transform: scale(1.1);
+        }
 
-        .content-section p, .content-section li {
-            line-height: 1.8;
-            margin-bottom: 1rem;
-            font-size: 1rem;
-        }
+        .fab-button svg {
+            width: 1.5rem;
+            height: 1.5rem;
+            margin: auto;
+        }
 
-        .content-section ul, .content-section ol {
-            padding-right: 1.5rem;
-            list-style-type: disc;
-        }
-
-        /* FAB Button */
-        .fab-container {
-            position: fixed;
-            bottom: 20px;
-            left: 20px; /* اليسار للـ RTL */
-            z-index: 100;
-        }
-
-        .fab-button {
-            display: none;
-            background-color: var(--accent-color);
-            color: white;
-            border: none;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            font-size: 1.5rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            cursor: pointer;
-            transition: background-color 0.3s, opacity 0.3s, transform 0.3s;
-        }
-
-        .fab-button:hover {
-            background-color: #2563eb;
-            transform: scale(1.1);
-        }
-
-        .fab-button svg {
-            width: 1.5rem;
-            height: 1.5rem;
-            margin: auto;
-        }
-
-        /* إخفاء H2 الذي كان يعرض العنوان الفرعي */
-        #current-tutorial-title {
-            display: none;
-        }
-    </style>
+        /* إخفاء H2 الذي كان يعرض العنوان الفرعي */
+        #current-tutorial-title {
+            display: none;
+        }
+    </style>
 </head>
 <body class="dark-mode">
 
-    <header class="header-bg text-white p-4 shadow-md">
-        <div class="header-actions-right">
-            <!-- إزالة زر القائمة الجانبية -->
-            <button id="back-to-home-button" class="action-button home-button">
-                🏠
-            </button>
-        </div>
-        
-        <!-- سيحتوي هذا على عنوان التطبيق أو عنوان الدرس الحالي -->
-        <h1 class="text-xl md:text-2xl font-bold" id="header-title">منصة التعليم</h1>
-        
-        <div class="header-actions-left">
-            <button id="font-size-decrease" class="font-size-button">-</button>
-            <button id="font-size-increase" class="font-size-button">+</button>
-        </div>
-    </header>
+    <header class="header-bg text-white p-4 shadow-md">
+        <div class="header-actions-right">
+            <a href="index.html" id="back-to-home-button" class="action-button home-button" style="display: none;">
+                🏠
+            </a>
+        </div>
+        
+        <h1 class="text-xl md:text-2xl font-bold" id="header-title">منصة التعليم</h1>
+        
+        <div class="header-actions-left">
+            <button id="font-size-decrease" class="font-size-button">-</button>
+            <button id="font-size-increase" class="font-size-button">+</button>
+        </div>
+    </header>
 
-    <!-- تم إخفاء هذا العنصر لأنه لم يعد ضرورياً مع تصميم البطاقات -->
-    <h2 id="current-tutorial-title" class="text-xl md:text-2xl font-bold text-center mt-20 md:mt-24 text-white"></h2>
+    <main class="container mx-auto p-4 md:p-8 main-container" id="main-content">
+        </main>
 
-    <!-- تم إزالة القائمة الجانبية بالكامل من هنا -->
+    <div class="fab-container">
+        <button id="scroll-to-top-button" class="fab-button scroll-to-top-fab">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+            </svg>
+        </button>
+    </div>
 
-    <main class="container mx-auto p-4 md:p-8 main-container" id="main-content">
-        <!-- سيتم ملء هذا إما بالبطاقات أو بمحتوى الدرس -->
-    </main>
+    <script>
+        
+        // ===================================
+        // محتوى data.js - تم تحديثه ليناسب أوراق عمل الذكاء الاصطناعي و Python
+        // ===================================
 
-    <div class="fab-container">
-        <button id="scroll-to-top-button" class="fab-button scroll-to-top-fab">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
-            </svg>
-        </button>
-    </div>
+        const data = [
+            {
+                id: '1.html', 
+                title: 'مقدمة في الذكاء الاصطناعي (AI)',
+                description: 'مفاهيم الذكاء الاصطناعي، تعلم الآلة، التعلم العميق، والأبعاد الأخلاقية.',
+            },
+            {
+                id: 'Sheet 2.html', 
+                title: 'أساسيات Python (البيانات، الدوال، الاستثناءات)',
+                description: 'المتغيرات، القوائم، الثلاثيات (Tuples)، تعريف الدوال، والتعامل مع الأخطاء (try-except).',
+            },
+            {
+                id: 'Sheet 3 (Python Sets).html',
+                title: 'مجموعات Python (Sets) والعمليات عليها',
+                description: 'إنشاء المجموعات، الخصائص، العمليات الجبرية للمجموعات (الاتحاد، التقاطع، الفرق).',
+            },
+            {
+                id: 'Sheet 3 (Part 2).html',
+                title: 'مقارنات، عامل الهوية (is)، وقوائم Comprehension',
+                description: 'عبارات match-case، عوامل العضوية (in)، عامل الهوية (is)، وكيفية بناء القوائم المختصرة.',
+            },
+            {
+                id: 'Sheet 4 (Part 1).html',
+                title: 'مقارنة هياكل البيانات (List, Tuple, Set, Dict)',
+                description: 'جدول مقارنة شامل للعمليات والخصائص الأساسية لأربع هياكل بيانات في Python.',
+            },
+            {
+                id: 'Sheet 4 (Part 2).html',
+                title: 'ميزات Python المتقدمة (enumerate, zip, lambda, JSON, *args)',
+                description: 'الدوال المدمجة، دوال lambda، التعامل مع JSON، وتمرير عدد متغير من الوسائط.',
+            },
+            {
+                id: 'Sheet 5.html',
+                title: 'مكتبات علم البيانات (NumPy, Pandas, Matplotlib)',
+                description: 'أساسيات NumPy للمصفوفات، Pandas للـ DataFrames، و Matplotlib للرسوم البيانية.',
+            }
+        ];
 
-    <script>
-        
-        // ===================================
-        // محتوى data.js - تم تحديثه ليشمل جميع ملفات الـ Sheets
-        // ===================================
+        // ===================================
+        // محتوى app.js - تم تعديل المنطق
+        // ===================================
 
-        const data = [
-            {
-                id: '1.html',
-                title: 'مقدمة في البرمجة',
-                description: 'رحلة البداية في عالم الأكواد والمنطق الحاسوبي.',
-                sections: [
-                    {
-                        title: 'لماذا نتعلم البرمجة؟',
-                        content: `
-                            <p>تساعد البرمجة في تطوير التفكير المنطقي وحل المشكلات. إنها لغة المستقبل وتفتح آفاقًا واسعة للوظائف والابتكار.</p>
-                            <ul>
-                                <li><strong>حل المشكلات:</strong> تعلم كيفية تقسيم المشاكل الكبيرة إلى أجزاء صغيرة يمكن إدارتها.</li>
-                                <li><strong>الأتمتة:</strong> أتمتة المهام المتكررة لتوفير الوقت والجهد.</li>
-                                <li><strong>الإبداع:</strong> بناء تطبيقات ومواقع وألعاب جديدة.</li>
-                            </ul>
-                        `
-                    },
-                    {
-                        title: 'اللغات الأساسية',
-                        content: `
-                            <p>تشمل اللغات الأساسية التي يجب أن تبدأ بها:</p>
-                            <ol>
-                                <li><strong>HTML:</strong> هيكل صفحات الويب.</li>
-                                <li><strong>CSS:</strong> تصميم وتنسيق صفحات الويب.</li>
-                                <li><strong>JavaScript:</strong> إضافة التفاعل والمنطق للصفحات.</li>
-                            </ol>
-                        `
-                    }
-                ]
-            },
-            {
-                id: 'Sheet 2.html',
-                title: 'مفاهيم HTML المتقدمة',
-                description: 'التعمق في بنية الويب وعناصر الإدخال والوسائط.',
-                sections: [
-                    {
-                        title: 'النماذج (Forms)',
-                        content: `
-                            <p>النماذج هي أدوات أساسية لجمع مدخلات المستخدم. تتكون من وسم <code>&lt;form&gt;</code> وعناصر الإدخال المختلفة.</p>
-                            <ul>
-                                <li><code>&lt;input type="text"&gt;</code></li>
-                                <li><code>&lt;input type="submit"&gt;</code></li>
-                                <li><code>&lt;textarea&gt;</code></li>
-                            </ul>
-                        `
-                    },
-                    {
-                        title: 'الوسائط المتعددة (Media)',
-                        content: `
-                            <p>دمج الصور والفيديوهات والصوت يثري المحتوى الرقمي. تُستخدم الوسوم <code>&lt;img&gt;</code>، <code>&lt;video&gt;</code>، و <code>&lt;audio&gt;</code>.</p>
-                        `
-                    }
-                ]
-            },
-            {
-                id: 'Sheet 3 (Part 2).html',
-                title: 'مقدمة في CSS',
-                description: 'كيفية تجميل صفحات الويب وتنسيقها باحترافية.',
-                sections: [
-                    {
-                        title: 'المحددات (Selectors)',
-                        content: `
-                            <p>المحددات تخبر المتصفح أي عنصر HTML يجب تطبيق النمط عليه. الأنواع الشائعة هي:</p>
-                            <ul>
-                                <li><strong>المحددات الأساسية:</strong> بالاسم، الفئة (Class)، والمعرف (ID).</li>
-                                <li><strong>المحددات التجميعية:</strong> الجمع بين محددات مختلفة مثل (Descendant Selector).</li>
-                            </ul>
-                        `
-                    },
-                    {
-                        title: 'صندوق النموذج (Box Model)',
-                        content: `
-                            <p>كل عنصر HTML يُعتبر صندوقًا (Box) يتكون من: المحتوى (Content)، الحشو (Padding)، الحدود (Border)، والهامش (Margin).</p>
-                        `
-                    }
-                ]
-            },
-             {
-                id: 'Sheet 3 (Python Sets).html',
-                title: 'مجموعات بايثون (Python Sets)',
-                description: 'تعلم كيفية استخدام المجموعات في بايثون لتمثيل البيانات الفريدة.',
-                sections: [
-                    {
-                        title: 'ما هي المجموعات؟',
-                        content: `
-                            <p>المجموعة في بايثون هي نوع من مجموعات البيانات غير المرتبة وغير المفهرسة ولا تسمح بتكرار العناصر.</p>
-                            <pre class="bg-gray-800 p-3 rounded-md text-sm mt-2 text-green-300"><code>my_set = {"تفاح", "موز", "برتقال"}</code></pre>
-                        `
-                    },
-                    {
-                        title: 'العمليات الأساسية',
-                        content: `
-                            <p>يمكن إجراء عمليات الاتحاد والتقاطع والفرق بين المجموعات:</p>
-                            <pre class="bg-gray-800 p-3 rounded-md text-sm mt-2 text-green-300"><code>set1 = {1, 2, 3}
-set2 = {3, 4, 5}
-union = set1.union(set2)  # الناتج: {1, 2, 3, 4, 5}</code></pre>
-                        `
-                    }
-                ]
-            },
-            {
-                id: 'Sheet 4 (Part 1).html',
-                title: 'مقدمة في JavaScript',
-                description: 'الخطوات الأولى لإضافة التفاعل والمنطق لصفحات الويب.',
-                sections: [
-                    {
-                        title: 'المتغيرات وأنواع البيانات',
-                        content: `
-                            <p>تستخدم <code>let</code> و <code>const</code> لتعريف المتغيرات. أنواع البيانات الرئيسية هي السلاسل النصية (string)، الأرقام (number)، والقيم المنطقية (boolean).</p>
-                        `
-                    },
-                    {
-                        title: 'الجمل الشرطية (Conditions)',
-                        content: `
-                            <p>تسمح لك الجمل الشرطية مثل <code>if</code> و <code>else</code> بتنفيذ كود معين بناءً على شروط منطقية.</p>
-                            <pre class="bg-gray-800 p-3 rounded-md text-sm mt-2 text-yellow-300"><code>let age = 18;
-if (age >= 18) {
-    console.log("يمكنك التصويت.");
-} else {
-    console.log("لا يمكنك التصويت بعد.");
-}</code></pre>
-                        `
-                    }
-                ]
-            },
-            {
-                id: 'Sheet 4 (Part 2).html',
-                title: 'حلقات التكرار في JavaScript',
-                description: 'تعلم كيفية تكرار المهام باستخدام حلقات التكرار مثل (for) و (while).',
-                sections: [
-                    {
-                        title: 'حلقة for',
-                        content: `
-                            <p>تُستخدم حلقة <code>for</code> لتكرار كتلة من التعليمات لعدد محدد من المرات.</p>
-                            <pre class="bg-gray-800 p-3 rounded-md text-sm mt-2 text-yellow-300"><code>for (let i = 0; i < 5; i++) {
-    console.log("العد: " + i);
-}</code></pre>
-                        `
-                    },
-                    {
-                        title: 'حلقة while',
-                        content: `
-                            <p>تُستخدم حلقة <code>while</code> لتكرار كتلة من التعليمات طالما كان الشرط المحدد صحيحًا.</p>
-                            <pre class="bg-gray-800 p-3 rounded-md text-sm mt-2 text-yellow-300"><code>let counter = 0;
-while (counter < 3) {
-    console.log("التكرار رقم: " + counter);
-    counter++;
-}</code></pre>
-                        `
-                    }
-                ]
-            },
-            {
-                id: 'Sheet 5.html',
-                title: 'أساسيات الشبكات',
-                description: 'مقدمة لمفاهيم الشبكات، عناوين IP، والبروتوكولات الأساسية.',
-                sections: [
-                    {
-                        title: 'ما هي الشبكة؟',
-                        content: `
-                            <p>الشبكة هي مجموعة من الأجهزة المرتبطة ببعضها البعض لتبادل البيانات والموارد. الأنواع الشائعة تشمل LAN و WAN.</p>
-                            <ul>
-                                <li><strong>LAN (Local Area Network):</strong> شبكة محلية صغيرة (مكتب أو منزل).</li>
-                                <li><strong>WAN (Wide Area Network):</strong> شبكة واسعة تمتد عبر مناطق جغرافية كبيرة (الإنترنت).</li>
-                            </ul>
-                        `
-                    },
-                    {
-                        title: 'عناوين IP والماك (IP & MAC Addresses)',
-                        content: `
-                            <p>عنوان IP (بروتوكول الإنترنت) هو المعرف المنطقي للجهاز. عنوان MAC (التحكم في الوصول للوسائط) هو المعرف الفعلي للجهاز.</p>
-                            <p>مثال على عنوان IP: <code>192.168.1.1</code></p>
-                        `
-                    }
-                ]
-            }
-        ];
+        // تعريف المتغيرات العالمية
+        let currentFontSize = 16;
+        const FONT_SIZE_STEP = 2;
+        const MIN_FONT_SIZE = 12;
+        const MAX_FONT_SIZE = 24;
+        let currentView = 'grid'; // دائماً 'grid' في هذه الصفحة
 
-        // ===================================
-        // محتوى app.js - تم تعديل المنطق
-        // ===================================
+        // العناصر
+        const backToHomeButton = document.getElementById('back-to-home-button');
+        const fontSizeIncreaseButton = document.getElementById('font-size-increase');
+        const fontSizeDecreaseButton = document.getElementById('font-size-decrease');
+        const mainContent = document.getElementById('main-content');
+        const headerTitle = document.getElementById('header-title');
+        const scrollToTopButton = document.getElementById('scroll-to-top-button');
+        const bodyElement = document.body;
+        
+        // ------------------------------------
+        // وظائف صفحة البطاقات الرئيسية (Grid View)
+        // ------------------------------------
 
-        // تعريف المتغيرات العالمية
-        let currentFontSize = 16;
-        const FONT_SIZE_STEP = 2;
-        const MIN_FONT_SIZE = 12;
-        const MAX_FONT_SIZE = 24;
-        let currentView = 'grid'; // 'grid' أو 'tutorial'
+        function displayGridView() {
+            currentView = 'grid';
+            headerTitle.textContent = 'منصة التعليم';
+            mainContent.classList.add('flex-col');
+            // التأكد من إخفاء زر العودة لأننا في الصفحة الرئيسية
+            backToHomeButton.style.display = 'none'; 
 
-        // العناصر
-        const backToHomeButton = document.getElementById('back-to-home-button');
-        const fontSizeIncreaseButton = document.getElementById('font-size-increase');
-        const fontSizeDecreaseButton = document.getElementById('font-size-decrease');
-        const mainContent = document.getElementById('main-content');
-        const headerTitle = document.getElementById('header-title');
-        const scrollToTopButton = document.getElementById('scroll-to-top-button');
-        const bodyElement = document.body;
-        
-        // ------------------------------------
-        // وظائف صفحة البطاقات الرئيسية (Grid View)
-        // ------------------------------------
+            let gridHTML = '<div id="grid-view"><header class="text-center mb-10"><h1 class="text-3xl font-bold relative inline-block">اختر موضوعًا</h1></header><main class="grid-container">';
+            
+            data.forEach(tutorial => {
+                // تعديل هنا: أصبح الرابط يشير مباشرة إلى ملف HTML بالاسم المطابق لـ ID
+                gridHTML += `
+                    <a href="${tutorial.id}" class="card"> 
+                        <h2>${tutorial.title}</h2>
+                        <p>${tutorial.description}</p>
+                    </a>
+                `;
+            });
 
-        function displayGridView() {
-            currentView = 'grid';
-            headerTitle.textContent = 'منصة التعليم';
-            mainContent.classList.add('flex-col');
-            backToHomeButton.style.display = 'none'; // إخفاء زر العودة في الصفحة الرئيسية
+            gridHTML += '</main></div>';
+            mainContent.innerHTML = gridHTML;
 
-            let gridHTML = '<div id="grid-view"><header class="text-center mb-10"><h1 class="text-3xl font-bold relative inline-block">اختر موضوعًا</h1></header><main class="grid-container">';
-            
-            data.forEach(tutorial => {
-                gridHTML += `
-                    <a class="card" data-id="${tutorial.id}">
-                        <h2>${tutorial.title}</h2>
-                        <p>${tutorial.description}</p>
-                    </a>
-                `;
-            });
+            // تم إزالة إضافة معالجات الأحداث لـ .card
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
 
-            gridHTML += '</main></div>';
-            mainContent.innerHTML = gridHTML;
+        // تم حذف دالة loadTutorialContent(id) لعدم الحاجة إليها
 
-            // إضافة معالجات الأحداث لفتح الدروس
-            document.querySelectorAll('.card').forEach(card => {
-                card.addEventListener('click', (e) => {
-                    const id = e.currentTarget.getAttribute('data-id');
-                    loadTutorialContent(id);
-                });
-            });
+        // ------------------------------------
+        // وظائف التحكم بحجم الخط
+        // ------------------------------------
 
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
+        function updateFontSize() {
+            bodyElement.style.fontSize = `${currentFontSize}px`;
+        }
 
-        // ------------------------------------
-        // وظائف تحميل المحتوى (Tutorial View)
-        // ------------------------------------
+        function increaseFontSize() {
+            if (currentFontSize < MAX_FONT_SIZE) {
+                currentFontSize += FONT_SIZE_STEP;
+                updateFontSize();
+            }
+        }
 
-        function loadTutorialContent(id) {
-            const tutorial = data.find(t => t.id === id);
-            if (!tutorial) {
-                mainContent.innerHTML = `<div class="text-center p-8 bg-red-900 rounded-lg"><h2 class="text-3xl font-bold text-red-400">خطأ</h2><p class="text-red-300">لم يتم العثور على الدرس المطلوب.</p></div>`;
-                headerTitle.textContent = 'خطأ في التحميل';
-                return;
-            }
+        function decreaseFontSize() {
+            if (currentFontSize > MIN_FONT_SIZE) {
+                currentFontSize -= FONT_SIZE_STEP;
+                updateFontSize();
+            }
+        }
 
-            currentView = 'tutorial';
-            headerTitle.textContent = tutorial.title;
-            mainContent.classList.remove('flex-col'); // إزالة تنسيق التوسيط للـ Grid
-            backToHomeButton.style.display = 'block'; // إظهار زر العودة
+        // ------------------------------------
+        // وظائف التمرير
+        // ------------------------------------
 
-            
-            // إنشاء المحتوى الرئيسي
-            let contentHTML = `<h2 class="text-3xl font-bold text-center mb-8 text-blue-400">${tutorial.title}</h2>`;
-            
-            // لعرض جميع الأقسام في الصفحة الواحدة
-            tutorial.sections.forEach((section, index) => {
-                contentHTML += `
-                    <section id="section-${id}-${index}" class="content-section">
-                        <h3>${section.title}</h3>
-                        ${section.content}
-                    </section>
-                `;
-            });
-            
-            mainContent.innerHTML = contentHTML;
+        function checkScrollPosition() {
+            if (window.scrollY > 200) {
+                scrollToTopButton.style.display = 'block';
+            } else {
+                scrollToTopButton.style.display = 'none';
+            }
+        }
 
-            // التمرير إلى أعلى الصفحة بعد التحميل
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-        
-        // ------------------------------------
-        // وظائف التحكم بحجم الخط
-        // ------------------------------------
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
 
-        function updateFontSize() {
-            bodyElement.style.fontSize = `${currentFontSize}px`;
-        }
+        // ------------------------------------
+        // إعدادات البداية ومعالجات الأحداث
+        // ------------------------------------
 
-        function increaseFontSize() {
-            if (currentFontSize < MAX_FONT_SIZE) {
-                currentFontSize += FONT_SIZE_STEP;
-                updateFontSize();
-            }
-        }
+        function initializeApp() {
+            // 1. تحميل عرض البطاقات الافتراضي
+            displayGridView();
 
-        function decreaseFontSize() {
-            if (currentFontSize > MIN_FONT_SIZE) {
-                currentFontSize -= FONT_SIZE_STEP;
-                updateFontSize();
-            }
-        }
+            // 2. تطبيق حجم الخط الافتراضي
+            updateFontSize();
 
-        // ------------------------------------
-        // وظائف التمرير
-        // ------------------------------------
+            // 3. تعيين معالجات الأحداث
+            // ملاحظة: زر العودة 'back-to-home-button' أصبح الآن رابطاً ثابتاً (Hard Link) يشير إلى index.html، لذلك لا نحتاج لمعالج حدث له
+            
+            fontSizeIncreaseButton.addEventListener('click', increaseFontSize);
+            fontSizeDecreaseButton.addEventListener('click', decreaseFontSize);
+            scrollToTopButton.addEventListener('click', scrollToTop);
+            window.addEventListener('scroll', checkScrollPosition);
+        }
 
-        function checkScrollPosition() {
-            if (window.scrollY > 200) {
-                scrollToTopButton.style.display = 'block';
-            } else {
-                scrollToTopButton.style.display = 'none';
-            }
-        }
+        // بدء التطبيق عند تحميل الصفحة
+        window.addEventListener('load', initializeApp);
 
-        function scrollToTop() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        }
-
-        // ------------------------------------
-        // إعدادات البداية ومعالجات الأحداث
-        // ------------------------------------
-
-        function initializeApp() {
-            // 1. تحميل عرض البطاقات الافتراضي
-            displayGridView();
-
-            // 2. تطبيق حجم الخط الافتراضي
-            updateFontSize();
-
-            // 3. تعيين معالجات الأحداث
-            // زر العودة دائمًا يعود إلى صفحة البطاقات الرئيسية
-            backToHomeButton.addEventListener('click', displayGridView);
-            
-            fontSizeIncreaseButton.addEventListener('click', increaseFontSize);
-            fontSizeDecreaseButton.addEventListener('click', decreaseFontSize);
-            scrollToTopButton.addEventListener('click', scrollToTop);
-            window.addEventListener('scroll', checkScrollPosition);
-        }
-
-        // بدء التطبيق عند تحميل الصفحة
-        window.addEventListener('load', initializeApp);
-
-    </script>
+    </script>
 </body>
 </html>
