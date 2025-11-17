@@ -1,139 +1,138 @@
 <!DOCTYPE html>
 <html lang="ar">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Subjects</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    body {
-      font-family: 'Cairo', sans-serif;
-      background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
-      margin: 0;
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      color: #ecf0f1;
-      position: relative;
-    }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Subjects</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Cairo', sans-serif;
+      background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: #ecf0f1;
+      position: relative;
+    }
 
-    .back-arrow {
-      position: fixed;
-      top: 20px;
-      left: 20px;
-      width: 50px;
-      height: 50px;
-      background: linear-gradient(135deg, #ff512f, #dd2476);
-      color: #fff;
-      font-size: 2em;
-      border-radius: 50%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-decoration: none;
-      box-shadow: 0 6px 15px rgba(0,0,0,0.6);
-      transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
-      z-index: 10;
-    }
+    .back-arrow {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, #ff512f, #dd2476);
+      color: #fff;
+      font-size: 2em;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-decoration: none;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.6);
+      transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+      z-index: 10;
+    }
 
-    .back-arrow:hover {
-      transform: rotate(-15deg) scale(1.2);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.8);
-      background: linear-gradient(135deg, #dd2476, #ff512f);
-    }
+    .back-arrow:hover {
+      transform: rotate(-15deg) scale(1.2);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.8);
+      background: linear-gradient(135deg, #dd2476, #ff512f);
+    }
 
-    header { text-align: center; margin-bottom: 40px; }
-    h1 {
-      font-size: 2.4em;
-      margin: 0;
-      position: relative;
-    }
-    h1::after {
-      content: '';
-      width: 90px; height: 4px;
-      background: linear-gradient(90deg, #ff6a00, #ee0979);
-      position: absolute; bottom: -12px; left: 50%;
-      transform: translateX(-50%);
-      border-radius: 2px;
-    }
+    header { text-align: center; margin-bottom: 40px; }
+    h1 {
+      font-size: 2.4em;
+      margin: 0;
+      position: relative;
+    }
+    h1::after {
+      content: '';
+      width: 90px; height: 4px;
+      background: linear-gradient(90deg, #ff6a00, #ee0979);
+      position: absolute; bottom: -12px; left: 50%;
+      transform: translateX(-50%);
+      border-radius: 2px;
+    }
 
-    .grid-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 25px;
-      width: 100%;
-      max-width: 1200px;
-      padding: 0 10px;
-    }
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 25px;
+      width: 100%;
+      max-width: 1200px;
+      padding: 0 10px;
+    }
 
-    .card {
-      background: linear-gradient(135deg, #232526, #414345);
-      border-radius: 18px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.6);
-      padding: 30px;
-      text-align: center;
-      color: #bdc3c7;
-      text-decoration: none;
-      transition: transform 0.4s ease, box-shadow 0.4s ease;
-      cursor: pointer;
-      display: block;
-    }
+    .card {
+      background: linear-gradient(135deg, #232526, #414345);
+      border-radius: 18px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+      padding: 30px;
+      text-align: center;
+      color: #bdc3c7;
+      text-decoration: none;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      cursor: pointer;
+      display: block;
+    }
 
-    .card:hover {
-      transform: translateY(-8px) scale(1.03);
-      box-shadow: 0 12px 28px rgba(0,0,0,0.8), 0 0 25px #ff6a00aa;
-    }
+    .card:hover {
+      transform: translateY(-8px) scale(1.03);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.8), 0 0 25px #ff6a00aa;
+    }
 
-    .card h2 {
-      margin-top: 0;
-      font-size: 1.6em;
-      background: linear-gradient(90deg, #ff6a00, #ee0979);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
+    .card h2 {
+      margin-top: 0;
+      font-size: 1.6em;
+      background: linear-gradient(90deg, #ff6a00, #ee0979);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
 
-    .card p { font-size: 1em; color: #95a5a6; }
-  </style>
+    .card p { font-size: 1em; color: #95a5a6; }
+  </style>
 </head>
 <body>
-  <a class="back-arrow" href="index.html">&#8592;</a>
+  <a class="back-arrow" href="index.html">&#8592;</a>
 
-  <header>
-    <h1>Subjects</h1>
-  </header>
+  <header>
+    <h1>Subjects</h1>
+  </header>
 
-  <main class="grid-container">
-    <a class="card" href="preview.html?folder=1cA1iv4o6M9GP6Sl9R0SbQPaAqcRB6_9y&name=AI">
-      <h2>AI</h2>
-      <p>مادة الذكاء الاصطناعي</p>
-    </a>
+  <main class="grid-container">
+    <a class="card" href="preview.html?folder=1cA1iv4o6M9GP6Sl9R0SbQPaAqcRB6_9y&name=AI">
+      <h2>AI</h2>
+      <p>مادة الذكاء الاصطناعي</p>
+    </a>
 
-    <a class="card" href="preview.html?folder=17iw73ZKs2FmX8m6XO3AF17kjNqKzQPj5&name=CCNA%20R%26S%20IV">
-      <h2>CCNA R&S IV</h2>
-      <p>مادة شبكات CCNA R&S IV</p>
-    </a>
+    <a class="card" href="preview.html?folder=17iw73ZKs2FmX8m6XO3AF17kjNqKzQPj5&name=CCNA%20R%26S%20IV">
+      <h2>CCNA R&S IV</h2>
+      <p>مادة شبكات CCNA R&S IV</p>
+    </a>
 
-    <a class="card" href="preview.html?folder=1p2ODrNPbsP-ZjzSxMJDQiiopY0vZg8kb&name=CCNA%20Cybersecurity%20Operations">
-      <h2>CCNA Cybersecurity</h2>
-      <p>مادة الأمن السيبراني في CCNA</p>
-    </a>
+    <a class="card" href="preview.html?folder=1p2ODrNPbsP-ZjzSxMJDQiiopY0vZg8kb&name=CCNA%20Cybersecurity%20Operations">
+      <h2>CCNA Cybersecurity</h2>
+      <p>مادة الأمن السيبراني في CCNA</p>
+    </a>
 
-    <a class="card" href="preview.html?folder=1_l8NNmu5Ot_S1Ddfz0cqcG8PRlKe65dt&name=Encryption%20Algorithm">
-      <h2>Encryption Algorithm</h2>
-      <p>مادة خوارزميات التشفير</p>
-    </a>
+    <a class="card" href="preview.html?folder=1_l8NNmu5Ot_S1Ddfz0cqcG8PRlKe65dt&name=Encryption%20Algorithm">
+      <h2>Encryption Algorithm</h2>
+      <p>مادة خوارزميات التشفير</p>
+    </a>
 
-    <a class="card" href="preview.html?folder=1_3RIxu3atRrzRSjbK3OmDvK8VY-LzYZ1&name=IoT">
-      <h2>IoT</h2>
-      <p>مادة إنترنت الأشياء</p>
-    </a>
+    <a class="card" href="preview.html?folder=1_3RIxu3atRrzRSjbK3OmDvK8VY-LzYZ1&name=IoT">
+      <h2>IoT</h2>
+      <p>مادة إنترنت الأشياء</p>
+    </a>
 
-    <a class="card" href="preview.html?folder=1l2bz7qAVczmBNoOJw00Ak-Skbtiaiu2A&name=Server%20Administration">
-      <h2>Server Administration</h2>
-      <p>مادة إدارة السيرفرات</p>
-    </a>
-  </main>
+    <a class="card" href="preview.html?folder=1l2bz7qAVczmBNoOJw00Ak-Skbtiaiu2A&name=Server%20Administration">
+      <h2>Server Administration</h2>
+      <p>مادة إدارة السيرفرات</p>
+    </a>
+  </main>
 </body>
 </html>
-
