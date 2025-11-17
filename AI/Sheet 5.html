@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Course - Sheet 5 (Interactive Answer Key - NumPy, Pandas, Matplotlib)</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+            max-width: 900px;
+            margin: 20px auto;
+            border: 1px solid #ccc;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            text-align: center;
+            border-bottom: 2px solid #000;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .header h1 {
+            font-size: 1.8em;
+            margin: 0;
+            color: #0056b3;
+        }
+        .info-table {
+            width: 100%;
+            margin-bottom: 20px;
+            border-collapse: collapse;
+        }
+        .info-table td {
+            padding: 4px 0;
+            font-size: 0.95em;
+        }
+        .arabic-text {
+            direction: rtl;
+            text-align: right;
+            font-size: 0.95em;
+        }
+        h2 {
+            border-bottom: 1px solid #000;
+            padding-bottom: 5px;
+            margin-top: 30px;
+            font-size: 1.4em;
+            color: #1a1a1a;
+        }
+        .question-container {
+            margin-top: 15px;
+            padding-left: 10px;
+            border-bottom: 1px dotted #eee;
+            padding-bottom: 5px;
+        }
+        .question-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+        .question-text {
+            flex-grow: 1;
+            padding-right: 15px;
+            font-weight: 500;
+        }
+        .toggle-btn {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 12px;
+            cursor: pointer;
+            border-radius: 4px;
+            margin-left: 10px;
+            min-width: 120px;
+            white-space: nowrap;
+        }
+        .answer-content {
+            display: none; /* الأجوبة مخفية افتراضيًا */
+            margin-top: 5px;
+            padding: 10px;
+            background-color: #f0f8ff;
+            border: 1px solid #cceeff;
+            border-radius: 4px;
+        }
+        .answer-content .answer {
+             font-weight: bold;
+             color: #0056b3;
+        }
+        .code-block {
+            background-color: #e9ecef;
+            padding: 10px;
+            border-radius: 4px;
+            white-space: pre-wrap; 
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.9em;
+            border-left: 3px solid #007bff;
+            margin-top: 8px;
+        }
+        .sub-heading {
+            font-weight: bold;
+            margin-top: 15px;
+            color: #28a745;
+        }
+        .page-num {
+            text-align: right;
+            font-size: 0.8em;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Artificial Intelligence - Tutorial: Sheet 5</h1>
+    </div>
+
+    <table class="info-table">
+        <tr>
+            <td>Information Technology Department</td>
+            <td class="arabic-text">كلية تكنولوجيا الصناعة والطاقة</td>
+        </tr>
+        <tr>
+            <td>Faculty of Industrial and Energy Technology</td>
+            <td>4th Year</td>
+        </tr>
+        <tr>
+            <td>Course: <span class="answer">Artificial Intelligence</span></td>
+            <td>Semester: <span class="answer">1st term 2025/2026.</span></td>
+        </tr>
+        <tr>
+            <td>Lecturers: <span class="answer">Dr. Mohammed AbdelFattah</span></td>
+            <td>Tutorial: <span class="answer">Sheet 5</span></td>
+        </tr>
+    </table>
+
+    <div class="page-num">Page 1 of 4</div>
+
+    <div class="question-section">
+        <h2>Part A - True / False Questions</h2>
+        <p>Instructions: Write "T" for True or "F" for False.</p>
+        
+        <div class="question-container">
+            <div class="question-row">
+                <div class="question-text">1. NumPy is mainly used for creating and manipulating numerical arrays in Python.</div>
+                <button class="toggle-btn" onclick="toggleAnswer('tf1')">Show Answer</button>
+            </div>
+            <div id="tf1" class="answer-content"><span class="answer">(T)</span></div>
+        </div>
+        
+        <div class="question-container">
+            <div class="question-row">
+                <div class="question-text">2. Pandas Series can hold multiple columns of data.</div>
+                <button class="toggle-btn" onclick="toggleAnswer('tf2')">Show Answer</button>
+            </div>
+            <div id="tf2" class="answer-content"><span class="answer">(F)</span> - **Rationale:** A Pandas **Series** holds one column; a **DataFrame** holds multiple columns.</div>
+        </div>
+        
+        <div class="question-container">
+            <div class="question-row">
+                <div class="question-text">3. The `reshape()` function in NumPy changes the dimensions of an array.</div>
+                <button class="toggle-btn" onclick="toggleAnswer('tf3')">Show Answer</button>
+            </div>
+            <div id="tf3" class="answer-content"><span class="answer">(T)</span></div>
+        </div>
+
+        <div class="question-container">
+            <div class="question-row">
+                <div class="question-text">4. DataFrames in Pandas can be thought of as 2D labeled data structures similar to an Excel sheet.</div>
+                <button class="toggle-btn" onclick="toggleAnswer('tf4')">Show Answer</button>
+            </div>
+            <div id="tf4" class="answer-content"><span class="answer">(T)</span></div>
+        </div>
+        
+        <div class="question-container">
+            <div class="question-row">
+                <div class="question-text">5. `flatten()` in NumPy converts a multidimensional array into a 1D array.</div>
+                <button class="toggle-btn" onclick="toggleAnswer('tf5')">Show Answer</button>
+            </div>
+            <div id="tf5" class="answer-content"><span class="answer">(T)</span></div>
+        </div>
+
+        <div class="question-container">
+            <div class="question-row">
+                <div class="question-text">6. SciPy is mainly used for symbolic mathematics and logic programming.</div>
+                <button class="toggle-btn" onclick="toggleAnswer('tf6')">Show Answer</button>
+            </div>
+            <div id="tf6" class="answer-content"><span class="answer">(F)</span> - **Rationale:** SciPy is for scientific computing (e.g., optimization, statistics, integration); **SymPy** is used for symbolic math.</div>
+        </div>
+
+        <div class="question-container">
+            <div class="question-row">
+                <div class="question-text">7. The modern replacement for `pandas.Panel` is `xarray.Dataset`.</div>
+                <button class="toggle-btn" onclick="toggleAnswer('tf7')">Show Answer</button>
+            </div>
+            <div id="tf7" class="answer-content"><span class="answer">(T)</span> - **Rationale:** `pandas.Panel` was deprecated, and the recommended replacements for 3D+ data are `xarray` or hierarchical indexing.</div>
+        </div>
+
+        <div class="question-container">
+            <div class="question-row">
+                <div class="question-text">8. Matplotlib is used for creating visualizations like line and bar charts.</div>
+                <button class="toggle-btn" onclick="toggleAnswer('tf8')">Show Answer</button>
+            </div>
+            <div id="tf8" class="answer-content"><span class="answer">(T)</span></div>
+        </div>
+
+        <div class="question-container">
+            <div class="question-row">
+                <div class="question-text">9. In a NumPy 2D array, elements are accessed using two indices: `[row][column]`.</div>
+                <button class="toggle-btn" onclick="toggleAnswer('tf9')">Show Answer</button>
+            </div>
+            <div id="tf9" class="answer-content"><span class="answer">(T)</span> - **Rationale:** While `[row, column]` is preferred, `[row][column]` also works in NumPy.</div>
+        </div>
+
+        <div class="question-container">
+            <div class="question-row">
+                <div class="question-text">10. Pandas DataFrames can only contain numeric data types.</div>
+                <button class="toggle-btn" onclick="toggleAnswer('tf10')">Show Answer</button>
+            </div>
+            <div id="tf10" class="answer-content"><span class="answer">(F)</span> - **Rationale:** DataFrames can hold mixed data types (strings, booleans, dates, numbers, etc.).</div>
+        </div>
+    </div>
+
+    <div class="page-num">Page 2 of 4</div>
+
+    <hr>
+
+    <div class="question-section">
+        <h2>Part B - Multiple-Choice Questions</h2>
+        <p>Instructions: Choose the correct answer.</p>
+
+        <div class="question-container">
+            <div class="question-row">
+                <div class="question-text">
+                    1. What is the main purpose of NumPy?
+                    <div class="mcq-option">A) Text processing</div>
+                    <div class="mcq-option">B) Image rendering</div>
+                    <div class="mcq-option">C) Numerical computation using arrays</div>
+                    <div class="mcq-option">D) File management</div>
+                </div>
+                <button class="toggle-btn" onclick="toggleAnswer('mcq1')">Show Answer</button>
+            </div>
+            <div id="mcq1" class="answer-content"><span class="answer">C) Numerical computation using arrays</span></div>
+        </div>
+
+        <div class="question-container">
+            <div class="question-row">
+                <div class="question-text">
+                    2. Which of the following creates a Pandas Series?
+                    <div class="mcq-option">A) `pd.list()`</div>
+                    <div class="mcq-option">B) `pd.Series()`</div>
+                    <div class="mcq-option">C) `pd.Array()`</div>
+                    <div class="mcq-option">D) `pd.Table()`</div>
+                </div>
+                <button class="toggle-btn" onclick="toggleAnswer('mcq2')">Show Answer</button>
+            </div>
+            <div id="mcq2" class="answer-content"><span class="answer">B) `pd.Series()`</span> (assuming `import pandas as pd`)</div>
+        </div>
+
+        <div class="question-container">
+            <div class="question-row">
+                <div class="question-text">
+                    3. A Pandas DataFrame is similar to:
+                    <div class="mcq-option">A) A list of lists</div>
+                    <div class="mcq-option">B) A table with rows and columns</div>
+                    <div class="mcq-option">C) A NumPy scalar</div>
+                    <div class="mcq-option">D) A single dictionary</div>
+                </div>
+                <button class="toggle-btn" onclick="toggleAnswer('mcq3')">Show Answer</button>
+            </div>
+            <div id="mcq3" class="answer-content"><span class="answer">B) A table with rows and columns</span></div>
+        </div>
+
+        <div class="question-container">
+            <div class="question-row">
+                <div class="question-text">
+                    4. The command `np.arange(0, 10, 2)` will create:
+                    <div class="mcq-option">A) `[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]`</div>
+                    <div class="mcq-option">B) `[0, 2, 4, 6, 8]`</div>
+                    <div class="mcq-option">C) `[2, 4, 6, 8, 10]`</div>
+                    <div class="mcq-option">D) `[1, 3, 5, 7, 9]`</div>
+                </div>
+                <button class="toggle-btn" onclick="toggleAnswer('mcq4')">Show Answer</button>
+            </div>
+            <div id="mcq4" class="answer-content"><span class="answer">B) `[0, 2, 4, 6, 8]`</span> - **Rationale:** Starts at 0, stops before 10, steps by 2.</div>
+        </div>
+
+        <div class="question-container">
+            <div class="question-row">
+                <div class="question-text">
+                    5. Which library is best for data visualization?
+                    <div class="mcq-option">A) Pandas</div>
+                    <div class="mcq-option">B) NumPy</div>
+                    <div class="mcq-option">C) Matplotlib</div>
+                    <div class="mcq-option">D) SciPy</div>
+                </div>
+                <button class="toggle-btn" onclick="toggleAnswer('mcq5')">Show Answer</button>
+            </div>
+            <div id="mcq5" class="answer-content"><span class="answer">C) Matplotlib</span></div>
+        </div>
+    </div>
+    
+    <div class="page-num">Page 3 of 4</div>
+
+    <hr>
+
+    <div class="question-section">
+        <div class="question-container">
+            <div class="question-row">
+                <div class="question-text">
+                    6. What does `ndmin=2` do in a NumPy array?
+                    <div class="mcq-option">A) Limits the maximum dimensions</div>
+                    <div class="mcq-option">B) Forces the array to have at least 2 dimensions</div>
+                    <div class="mcq-option">C) Creates a list of 2 elements</div>
+                    <div class="mcq-option">D) None of the above</div>
+                </div>
+                <button class="toggle-btn" onclick="toggleAnswer('mcq6')">Show Answer</button>
+            </div>
+            <div id="mcq6" class="answer-content"><span class="answer">B) Forces the array to have at least 2 dimensions</span></div>
+        </div>
+
+        <div class="question-container">
+            <div class="question-row">
+                <div class="question-text">
+                    7. Which method allows you to reshape a NumPy array?
+                    <div class="mcq-option">A) `resize()`</div>
+                    <div class="mcq-option">B) `reshape()`</div>
+                    <div class="mcq-option">C) `flatten()`</div>
+                    <div class="mcq-option">D) `change_shape()`</div>
+                </div>
+                <button class="toggle-btn" onclick="toggleAnswer('mcq7')">Show Answer</button>
+            </div>
+            <div id="mcq7" class="answer-content"><span class="answer">B) `reshape()`</span></div>
+        </div>
+
+        <div class="question-container">
+            <div class="question-row">
+                <div class="question-text">
+                    8. `Pandas DataFrame()` function accepts which of the following parameters?
+                    <div class="mcq-option">A) data, index, columns, dtype, copy</div>
+                    <div class="mcq-option">B) data, labels, dtype, copy</div>
+                    <div class="mcq-option">C) array, type, index</div>
+                    <div class="mcq-option">D) table, columns, format</div>
+                </div>
+                <button class="toggle-btn" onclick="toggleAnswer('mcq8')">Show Answer</button>
+            </div>
+            <div id="mcq8" class="answer-content"><span class="answer">A) data, index, columns, dtype, copy</span> - **Rationale:** These are the primary optional parameters for the DataFrame constructor.</div>
+        </div>
+
+        <div class="question-container">
+            <div class="question-row">
+                <div class="question-text">
+                    9. Which library provides advanced scientific and mathematical functions on top of NumPy?
+                    <div class="mcq-option">A) SciPy</div>
+                    <div class="mcq-option">B) Seaborn</div>
+                    <div class="mcq-option">C) TensorFlow</div>
+                    <div class="mcq-option">D) Pandas</div>
+                </div>
+                <button class="toggle-btn" onclick="toggleAnswer('mcq9')">Show Answer</button>
+            </div>
+            <div id="mcq9" class="answer-content"><span class="answer">A) SciPy</span></div>
+        </div>
+
+        <div class="question-container">
+            <div class="question-row">
+                <div class="question-text">
+                    10. Which of the following statements is true?
+                    <div class="mcq-option">A) Pandas Panel is still the main 3D data structure.</div>
+                    <div class="mcq-option">B) `xarray.Dataset` has replaced Pandas Panel.</div>
+                    <div class="mcq-option">C) NumPy can store string data efficiently.</div>
+                    <div class="mcq-option">D) Matplotlib cannot plot 3D graphs.</div>
+                </div>
+                <button class="toggle-btn" onclick="toggleAnswer('mcq10')">Show Answer</button>
+            </div>
+            <div id="mcq10" class="answer-content"><span class="answer">B) `xarray.Dataset` has replaced Pandas Panel.</span></div>
+        </div>
+    </div>
+    
+    <div class="page-num">Page 4 of 4</div>
+
+    <hr>
+
+    <div class="question-section">
+        <h2>Part C - Coding Practice (Model Solutions)</h2>
+        <p>Instructions: Write Python code for each question below.</p>
+
+        <div class="question-container">
+            <div class="question-row">
+                <div class="question-text">1. NumPy Array Creation: Create a 2D NumPy array with values from 1 to 9 and reshape it into 3x3.</div>
+                <button class="toggle-btn" onclick="toggleAnswer('cp1')">Show Answer</button>
+            </div>
+            <div id="cp1" class="answer-content">
+                <div class="code-block">import numpy as np<br><br># Create array from 1 up to (but not including) 10<br>arr = np.arange(1, 10)<br># Reshape into 3 rows and 3 columns<br>arr_3x3 = arr.reshape(3, 3)<br>print(arr_3x3)<br># Output:<br># [[1 2 3]<br>#  [4 5 6]<br>#  [7 8 9]]</div>
+            </div>
+        </div>
+
+        <div class="question-container">
+            <div class="question-row">
+                <div class="question-text">2. Flatten Array: Write a program to flatten a 3D NumPy array into 1D.</div>
+                <button class="toggle-btn" onclick="toggleAnswer('cp2')">Show Answer</button>
+            </div>
+            <div id="cp2" class="answer-content">
+                <div class="code-block">import numpy as np<br><br># Example 3D array (2x2x2)<br>arr_3d = np.array([[[1, 2], [3, 4]], [[5, 6], [7, 8]]])<br><br># Flatten the array<br>arr_1d = arr_3d.flatten()<br>print(arr_1d)<br># Output: [1 2 3 4 5 6 7 8]</div>
+            </div>
+        </div>
+
+        <div class="question-container">
+            <div class="question-row">
+                <div class="question-text">3. Pandas Series Example: Create a Pandas Series of student names and display the index and data type.</div>
+                <button class="toggle-btn" onclick="toggleAnswer('cp3')">Show Answer</button>
+            </div>
+            <div id="cp3" class="answer-content">
+                <div class="code-block">import pandas as pd<br><br>names = ["Ali", "Sara", "Omar"]<br>student_series = pd.Series(names)<br><br>print("Series Index:")<br>print(student_series.index)<br>print("\\nSeries Data Type:")<br>print(student_series.dtype)<br># Output (Index/Dtype will reflect actual environment)</div>
+            </div>
+        </div>
+
+        <div class="question-container">
+            <div class="question-row">
+                <div class="question-text">4. DataFrame Example: Create a Pandas DataFrame for 3 students with their names, ages, and grades.</div>
+                <button class="toggle-btn" onclick="toggleAnswer('cp4')">Show Answer</button>
+            </div>
+            <div id="cp4" class="answer-content">
+                <div class="code-block">import pandas as pd<br><br>data = {<br>    'Name': ['Ali', 'Sara', 'Omar'],<br>    'Age': [22, 21, 23],<br>    'Grade': [90, 95, 88]<br>}<br><br>df = pd.DataFrame(data)<br>print(df)<br># Output:<br>#    Name  Age  Grade<br># 0   Ali   22     90<br># 1  Sara   21     95<br># 2  Omar   23     88</div>
+            </div>
+        </div>
+
+        <div class="question-container">
+            <div class="question-row">
+                <div class="question-text">5. Matplotlib Plot: Plot a simple line graph of $y = x^2$ using Matplotlib.</div>
+                <button class="toggle-btn" onclick="toggleAnswer('cp5')">Show Answer</button>
+            </div>
+            <div id="cp5" class="answer-content">
+                <div class="code-block">import matplotlib.pyplot as plt<br>import numpy as np<br><br># Create x and y data<br>x = np.linspace(-5, 5, 100) # 100 points between -5 and 5<br>y = x**2<br><br>plt.figure(figsize=(6, 4))<br>plt.plot(x, y, label='y = x^2', color='red')<br>plt.title('Parabolic Function Plot')<br>plt.xlabel('X-axis')<br>plt.ylabel('Y-axis')<br>plt.grid(True)<br>plt.legend()<br>plt.show()</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleAnswer(id) {
+            var answerDiv = document.getElementById(id);
+            var button = answerDiv.previousElementSibling.querySelector('.toggle-btn');
+            
+            if (answerDiv.style.display === 'block' || answerDiv.style.display === '') {
+                answerDiv.style.display = 'none';
+                button.textContent = 'Show Answer';
+            } else {
+                answerDiv.style.display = 'block';
+                button.textContent = 'Hide Answer';
+            }
+        }
+    </script>
+
+</body>
+</html>

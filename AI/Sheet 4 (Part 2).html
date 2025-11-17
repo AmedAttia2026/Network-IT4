@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Course - Sheet 4 Part 2 (Interactive Answer Key - Advanced Python)</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+            max-width: 900px;
+            margin: 20px auto;
+            border: 1px solid #ccc;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            text-align: center;
+            border-bottom: 2px solid #000;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .header h1 {
+            font-size: 1.8em;
+            margin: 0;
+            color: #0056b3;
+        }
+        .info-table {
+            width: 100%;
+            margin-bottom: 20px;
+            border-collapse: collapse;
+        }
+        .info-table td {
+            padding: 4px 0;
+            font-size: 0.95em;
+        }
+        .arabic-text {
+            direction: rtl;
+            text-align: right;
+            font-size: 0.95em;
+        }
+        h2 {
+            border-bottom: 1px solid #000;
+            padding-bottom: 5px;
+            margin-top: 30px;
+            font-size: 1.4em;
+            color: #1a1a1a;
+        }
+        .question-container {
+            margin-top: 15px;
+            padding-left: 10px;
+            border-bottom: 1px dotted #eee;
+            padding-bottom: 5px;
+        }
+        .question-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+        .question-text {
+            flex-grow: 1;
+            padding-right: 15px;
+            font-weight: 500;
+        }
+        .toggle-btn {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 12px;
+            cursor: pointer;
+            border-radius: 4px;
+            margin-left: 10px;
+            min-width: 120px;
+            white-space: nowrap;
+        }
+        .answer-content {
+            display: none; /* الأجوبة مخفية افتراضيًا */
+            margin-top: 5px;
+            padding: 10px;
+            background-color: #f0f8ff;
+            border: 1px solid #cceeff;
+            border-radius: 4px;
+        }
+        .answer-content .answer {
+             font-weight: bold;
+             color: #0056b3;
+        }
+        .code-block {
+            background-color: #e9ecef;
+            padding: 10px;
+            border-radius: 4px;
+            white-space: pre-wrap; 
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.9em;
+            border-left: 3px solid #007bff;
+            margin-top: 8px;
+        }
+        .sub-heading {
+            font-weight: bold;
+            margin-top: 15px;
+            color: #28a745;
+        }
+        .page-num {
+            text-align: right;
+            font-size: 0.8em;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Artificial Intelligence - Tutorial: Sheet 4 (Part 2)</h1>
+    </div>
+
+    <table class="info-table">
+        <tr>
+            <td>Information Technology Department</td>
+            <td class="arabic-text">كلية تكنولوجيا الصناعة والطاقة</td>
+        </tr>
+        <tr>
+            <td>Faculty of Industrial and Energy Technology</td>
+            <td>4th Year</td>
+        </tr>
+        <tr>
+            <td>Course: <span class="answer">Artificial Intelligence</span></td>
+            <td>Semester: <span class="answer">1st term 2025/2026.</span></td>
+        </tr>
+        <tr>
+            <td>Lecturers: <span class="answer">Dr. Mohammed AbdelFattah</span></td>
+            <td>Tutorial: <span class="answer">Sheet 4 (Part 2)</span></td>
+        </tr>
+    </table>
+
+    <div class="page-num">Page 1 of 5</div>
+
+    <div class="question-section">
+        <h2>Part A - True / False Questions</h2>
+        <p>Instructions: Write "T" for True or "F" for False.</p>
+        
+        <div class="question-container">
+            <div class="question-row">
+                <div class="question-text">1. The `enumerate()` function can be used to get both the index and the value while looping through a sequence.</div>
+                <button class="toggle-btn" onclick="toggleAnswer('tf1')">Show Answer</button>
+            </div>
+            <div id="tf1" class="answer-content"><span class="answer">(T)</span></div>
+        </div>
+        
+        <div class="question-container">
+            <div class="question-row">
+                <div class="question-text">2. The `zip()` function combines two or more iterables into a single iterable of tuples.</div>
+                <button class="toggle-btn" onclick="toggleAnswer('tf2')">Show Answer</button>
+            </div>
+            <div id="tf2" class="answer-content"><span class="answer">(T)</span></div>
+        </div>
+        
+        <div class="question-container">
+            <div class="question-row">
+                <div class="question-text">3. A `lambda` function must always have a name.</div>
+                <button class="toggle-btn" onclick="toggleAnswer('tf3')">Show Answer</button>
+            </div>
+            <div id="tf3" class="answer-content"><span class="answer">(F)</span> - **Rationale:** They are anonymous functions.</div>
+        </div>
+
+        <div class="question-container">
+            <div class="question-row">
+                <div class="question-text">4. JSON stands for Java Simple Object Notation.</div>
+                <button class="toggle-btn" onclick="toggleAnswer('tf4')">Show Answer</button>
+            </div>
+            <div id="tf4" class="answer-content"><span class="answer">(F)</span> - **Rationale:** JSON stands for **JavaScript Object Notation**.</div>
+        </div>
+        
+        <div class="question-container">
+            <div class="question-row">
+                <div class="question-text">5. Strings in Python are mutable objects.</div>
+                <button class="toggle-btn" onclick="toggleAnswer('tf5')">Show Answer</button>
+            </div>
+            <div id="tf5" class="answer-content"><span class="answer">(F)</span> - **Rationale:** Strings are **immutable**.</div>
+        </div>
+
+        <div class="question-container">
+            <div class="question-row">
+                <div class="question-text">6. The `format()` method and f-strings are both used for string formatting.</div>
+                <button class="toggle-btn" onclick="toggleAnswer('tf6')">Show Answer</button>
+            </div>
+            <div id="tf6" class="answer-content"><span class="answer">(T)</span></div>
+        </div>
+
+        <div class="question-container">
+            <div class="question-row">
+                <div class="question-text">7. The `*args` parameter is used to accept a variable number of positional arguments.</div>
+                <button class="toggle-btn" onclick="toggleAnswer('tf7')">Show Answer</button>
+            </div>
+            <div id="tf7" class="answer-content"><span class="answer">(T)</span></div>
+        </div>
+
+        <div class="question-container">
+            <div class="question-row">
+                <div class="question-text">8. The `**kwargs` parameter allows passing a variable number of keyword arguments.</div>
+                <button class="toggle-btn" onclick="toggleAnswer('tf8')">Show Answer</button>
+            </div>
+            <div id="tf8" class="answer-content"><span class="answer">(T)</span></div>
+        </div>
+
+        <div class="question-container">
+            <div class="question-row">
+                <div class="question-text">9. In the LEGB rule, "L" stands for "Local" and "G" stands for "Global".</div>
+                <button class="toggle-btn" onclick="toggleAnswer('tf9')">Show Answer</button>
+            </div>
+            <div id="tf9" class="answer-content"><span class="answer">(T)</span></div>
+        </div>
+
+        <div class="question-container">
+            <div class="question-row">
+                <div class="question-text">10. When unpacking arguments, the number of items in the list must exactly match the number of parameters in the function.</div>
+                <button class="toggle-btn" onclick="toggleAnswer('tf10')">Show Answer</button>
+            </div>
+            <div id="tf10" class="answer-content"><span class="answer">(T)</span></div>
+        </div>
+    </div>
+
+    <div class="page-num">Page 2 of 5</div>
+
+    <hr>
+
+    <div class="question-section">
+        <h2>Part B - Multiple-Choice Questions</h2>
+        <p>Instructions: Choose the correct answer.</p>
+
+        <div class="question-container">
+            <div class="question-row">
+                <div class="question-text">
+                    1. What does the following code output?
+                    <div class="code-block">items = ['AI', 'ML', 'DL'] <br>for i, v in enumerate(items): <br>    print(i, v)</div>
+                    <div class="mcq-option">a) 0 AI 1 ML 2 DL</div>
+                    <div class="mcq-option">b) AI 1 ML 2 DL</div>
+                    <div class="mcq-option">c) (0, 'AI'), (1, 'ML'), (2, 'DL')</div>
+                    <div class="mcq-option">d) Error</div>
+                </div>
+                <button class="toggle-btn" onclick="toggleAnswer('mcq1')">Show Answer</button>
+            </div>
+            <div id="mcq1" class="answer-content"><span class="answer">a) 0 AI 1 ML 2 DL</span></div>
+        </div>
+
+        <div class="question-container">
+            <div class="question-row">
+                <div class="question-text">
+                    2. What will the following code produce?
+                    <div class="code-block">names = ['Omar', 'Roa'] <br>scores = [95, 98] <br>print(list(zip(names, scores)))</div>
+                    <div class="mcq-option">a) [('Omar', 95), ('Roa', 98)]</div>
+                    <div class="mcq-option">b) ['Omar', 'Roa', 95, 98]</div>
+                    <div class="mcq-option">c) [(95, 'Omar'), (98, 'Roa')]</div>
+                    <div class="mcq-option">d) Error</div>
+                </div>
+                <button class="toggle-btn" onclick="toggleAnswer('mcq2')">Show Answer</button>
+            </div>
+            <div id="mcq2" class="answer-content"><span class="answer">a) [('Omar', 95), ('Roa', 98)]</span></div>
+        </div>
+
+        <div class="question-container">
+            <div class="question-row">
+                <div class="question-text">
+                    3. Which of the following defines a correct lambda function?
+                    <div class="mcq-option">a) `lambda x, y: x + y`</div>
+                    <div class="mcq-option">b) `def lambda(x, y): x + y`</div>
+                    <div class="mcq-option">c) `lambda: x + y`</div>
+                    <div class="mcq-option">d) `lambda(x, y) = x + y`</div>
+                </div>
+                <button class="toggle-btn" onclick="toggleAnswer('mcq3')">Show Answer</button>
+            </div>
+            <div id="mcq3" class="answer-content"><span class="answer">a) `lambda x, y: x + y`</span></div>
+        </div>
+    </div>
+    
+    <div class="page-num">Page 3 of 5</div>
+
+    <hr>
+
+    <div class="question-section">
+        <div class="question-container">
+            <div class="question-row">
+                <div class="question-text">
+                    4. The `json.loads()` function is used to:
+                    <div class="mcq-option">a) Convert a Python object into a JSON string</div>
+                    <div class="mcq-option">b) Read JSON data from a file</div>
+                    <div class="mcq-option">c) Convert a JSON string into a Python object</div>
+                    <div class="mcq-option">d) Load JSON module</div>
+                </div>
+                <button class="toggle-btn" onclick="toggleAnswer('mcq4')">Show Answer</button>
+            </div>
+            <div id="mcq4" class="answer-content"><span class="answer">c) Convert a JSON string into a Python object</span></div>
+        </div>
+
+        <div class="question-container">
+            <div class="question-row">
+                <div class="question-text">
+                    5. Which of the following string methods returns a capitalized version of a string?
+                    <div class="mcq-option">a) `.upper()`</div>
+                    <div class="mcq-option">b) `.capitalize()`</div>
+                    <div class="mcq-option">c) `.title()`</div>
+                    <div class="mcq-option">d) `.replace()`</div>
+                </div>
+                <button class="toggle-btn" onclick="toggleAnswer('mcq5')">Show Answer</button>
+            </div>
+            <div id="mcq5" class="answer-content"><span class="answer">b) `.capitalize()`</span></div>
+        </div>
+        
+        <div class="question-container">
+            <div class="question-row">
+                <div class="question-text">
+                    6. What will this print?
+                    <div class="code-block">name = "AI" <br>print(f"Welcome to {name} Course!")</div>
+                    <div class="mcq-option">a) Welcome to {name} Course!</div>
+                    <div class="mcq-option">b) Welcome to AI Course!</div>
+                    <div class="mcq-option">c) Welcome Course to AI!</div>
+                    <div class="mcq-option">d) Error</div>
+                </div>
+                <button class="toggle-btn" onclick="toggleAnswer('mcq6')">Show Answer</button>
+            </div>
+            <div id="mcq6" class="answer-content"><span class="answer">b) Welcome to AI Course!</span></div>
+        </div>
+
+        <div class="question-container">
+            <div class="question-row">
+                <div class="question-text">
+                    7. In the LEGB scope rule, which of the following is not a scope type?
+                    <div class="mcq-option">a) Local</div>
+                    <div class="mcq-option">b) Enclosed</div>
+                    <div class="mcq-option">c) Global</div>
+                    <div class="mcq-option">d) Base</div>
+                </div>
+                <button class="toggle-btn" onclick="toggleAnswer('mcq7')">Show Answer</button>
+            </div>
+            <div id="mcq7" class="answer-content"><span class="answer">d) Base</span> - **Rationale:** The four scopes are **L**ocal, **E**nclosed, **G**lobal, and **B**uilt-in.</div>
+        </div>
+    </div>
+    
+    <div class="page-num">Page 4 of 5</div>
+
+    <hr>
+
+    <div class="question-section">
+        <div class="question-container">
+            <div class="question-row">
+                <div class="question-text">
+                    8. What will this function print?
+                    <div class="code-block">def show(*args): <br>    print(args) <br>show(1, 2, 3)</div>
+                    <div class="mcq-option">a) `[1, 2, 3]`</div>
+                    <div class="mcq-option">b) `(1, 2, 3)`</div>
+                    <div class="mcq-option">c) `1 2 3`</div>
+                    <div class="mcq-option">d) Error</div>
+                </div>
+                <button class="toggle-btn" onclick="toggleAnswer('mcq8')">Show Answer</button>
+            </div>
+            <div id="mcq8" class="answer-content"><span class="answer">b) `(1, 2, 3)`</span></div>
+        </div>
+
+        <div class="question-container">
+            <div class="question-row">
+                <div class="question-text">
+                    9. What will this output?
+                    <div class="code-block">def info(**kwargs): <br>    print(kwargs) <br>info(name="Roa", score=95)</div>
+                    <div class="mcq-option">a) `('Roa', 95)`</div>
+                    <div class="mcq-option">b) `{'name': 'Roa', 'score': 95}`</div>
+                    <div class="mcq-option">c) `['Roa', 95]`</div>
+                    <div class="mcq-option">d) Error</div>
+                </div>
+                <button class="toggle-btn" onclick="toggleAnswer('mcq9')">Show Answer</button>
+            </div>
+            <div id="mcq9" class="answer-content"><span class="answer">b) `{'name': 'Roa', 'score': 95}`</span></div>
+        </div>
+
+        <div class="question-container">
+            <div class="question-row">
+                <div class="question-text">
+                    10. What is the result of the following code?
+                    <div class="code-block">def add(a, b): <br>    return a + b <br>data = [10, 20] <br>print(add(*data))</div>
+                    <div class="mcq-option">a) `[10, 20]`</div>
+                    <div class="mcq-option">b) `1020`</div>
+                    <div class="mcq-option">c) `30`</div>
+                    <div class="mcq-option">d) Error</div>
+                </div>
+                <button class="toggle-btn" onclick="toggleAnswer('mcq10')">Show Answer</button>
+            </div>
+            <div id="mcq10" class="answer-content"><span class="answer">c) `30`</span> - **Rationale:** `*data` unpacks the list into positional arguments.</div>
+        </div>
+    </div>
+    
+    <div class="page-num">Page 5 of 5</div>
+
+    <hr>
+
+    <div class="question-section">
+        <h2>Part C - Coding Practice (Model Solutions)</h2>
+        <p>Instructions: Write Python code for each question below.</p>
+
+        <div class="question-container">
+            <div class="question-row">
+                <div class="question-text">1. Write a program using `enumerate()` to print each student name with its index from a list.</div>
+                <button class="toggle-btn" onclick="toggleAnswer('cp1')">Show Answer</button>
+            </div>
+            <div id="cp1" class="answer-content">
+                <div class="code-block">students = ["Ahmed", "Sara", "Ali"]<br>for index, name in enumerate(students):<br>    print(f"Index {index}: {name}")</div>
+            </div>
+        </div>
+
+        <div class="question-container">
+            <div class="question-row">
+                <div class="question-text">2. Use the `zip()` function to combine two lists: one of subjects and one of grades, then print the paired results.</div>
+                <button class="toggle-btn" onclick="toggleAnswer('cp2')">Show Answer</button>
+            </div>
+            <div id="cp2" class="answer-content">
+                <div class="code-block">subjects = ["Math", "AI", "Python"]<br>grades = [90, 95, 88]<br><br>results = list(zip(subjects, grades))<br>print(results)</div>
+            </div>
+        </div>
+
+        <div class="question-container">
+            <div class="question-row">
+                <div class="question-text">3. Write a `lambda` function to calculate the cube of a number.</div>
+                <button class="toggle-btn" onclick="toggleAnswer('cp3')">Show Answer</button>
+            </div>
+            <div id="cp3" class="answer-content">
+                <div class="code-block">cube = lambda x: x ** 3<br><br># Test:<br>print(cube(4))</div>
+            </div>
+        </div>
+
+        <div class="question-container">
+            <div class="question-row">
+                <div class="question-text">4. Write a short code to convert a Python dictionary into JSON format.</div>
+                <button class="toggle-btn" onclick="toggleAnswer('cp4')">Show Answer</button>
+            </div>
+            <div id="cp4" class="answer-content">
+                <div class="code-block">import json<br><br>python_dict = {"name": "Test", "score": 99}<br><br>json_string = json.dumps(python_dict)<br>print(json_string)</div>
+            </div>
+        </div>
+
+        <div class="question-container">
+            <div class="question-row">
+                <div class="question-text">5. Create a function that accepts any number of arguments using `*args` and prints their sum.</div>
+                <button class="toggle-btn" onclick="toggleAnswer('cp5')">Show Answer</button>
+            </div>
+            <div id="cp5" class="answer-content">
+                <div class="code-block">def sum_all_args(*args):<br>    total = sum(args)<br>    print(f"The sum is: {total}")<br><br>sum_all_args(5, 10, 15, 20)</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleAnswer(id) {
+            var answerDiv = document.getElementById(id);
+            var button = answerDiv.previousElementSibling.querySelector('.toggle-btn');
+            
+            if (answerDiv.style.display === 'block' || answerDiv.style.display === '') {
+                answerDiv.style.display = 'none';
+                button.textContent = 'Show Answer';
+            } else {
+                answerDiv.style.display = 'block';
+                button.textContent = 'Hide Answer';
+            }
+        }
+    </script>
+
+</body>
+</html>

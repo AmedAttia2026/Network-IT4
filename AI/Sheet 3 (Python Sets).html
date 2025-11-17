@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Course - Sheet 3 (Interactive Answer Key - Python Sets)</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+            max-width: 900px;
+            margin: 20px auto;
+            border: 1px solid #ccc;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            text-align: center;
+            border-bottom: 2px solid #000;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .header h1 {
+            font-size: 1.8em;
+            margin: 0;
+            color: #0056b3;
+        }
+        .info-table {
+            width: 100%;
+            margin-bottom: 20px;
+            border-collapse: collapse;
+        }
+        .info-table td {
+            padding: 4px 0;
+            font-size: 0.95em;
+        }
+        .arabic-text {
+            direction: rtl;
+            text-align: right;
+            font-size: 0.95em;
+        }
+        h2 {
+            border-bottom: 1px solid #000;
+            padding-bottom: 5px;
+            margin-top: 30px;
+            font-size: 1.4em;
+            color: #1a1a1a;
+        }
+        .question-container {
+            margin-top: 15px;
+            padding-left: 10px;
+            border-bottom: 1px dotted #eee;
+            padding-bottom: 5px;
+        }
+        .question-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+        .question-text {
+            flex-grow: 1;
+            padding-right: 15px;
+            font-weight: 500;
+        }
+        .toggle-btn {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 12px;
+            cursor: pointer;
+            border-radius: 4px;
+            margin-left: 10px;
+            min-width: 120px;
+            white-space: nowrap;
+        }
+        .answer-content {
+            display: none; /* الأجوبة مخفية افتراضيًا */
+            margin-top: 5px;
+            padding: 10px;
+            background-color: #f0f8ff;
+            border: 1px solid #cceeff;
+            border-radius: 4px;
+        }
+        .answer-content .answer {
+             font-weight: bold;
+             color: #0056b3;
+        }
+        .code-block {
+            background-color: #e9ecef;
+            padding: 10px;
+            border-radius: 4px;
+            white-space: pre-wrap; /* للحفاظ على تنسيق الكود */
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.9em;
+            border-left: 3px solid #007bff;
+            margin-top: 8px;
+        }
+        .sub-heading {
+            font-weight: bold;
+            margin-top: 15px;
+            color: #28a745;
+        }
+        .page-num {
+            text-align: right;
+            font-size: 0.8em;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Artificial Intelligence - Sheet 3 (Python Sets)</h1>
+    </div>
+
+    <table class="info-table">
+        <tr>
+            <td>Information Technology Department</td>
+            <td class="arabic-text">كلية تكنولوجيا الصناعة والطاقة</td>
+        </tr>
+        <tr>
+            <td>Faculty of Industrial and Energy Technology</td>
+            <td>4th Year</td>
+        </tr>
+        <tr>
+            <td>Course: <span class="answer">Artificial Intelligence</span></td>
+            <td>Semester: <span class="answer">1st term 2025/2026.</span></td>
+        </tr>
+        <tr>
+            <td>Lecturers: <span class="answer">Dr. Mohammed AbdelFattah</span></td>
+            <td>Tutorial: <span class="answer">Sheet 3</span></td>
+        </tr>
+    </table>
+
+    <div class="page-num">Page 1 of 3</div>
+
+    <div class="question-section">
+        <h2>Part A - True / False Questions</h2>
+        <p>Instructions: Write T if the statement is true and F if the statement is false.</p>
+        
+        <div class="question-container">
+            <div class="question-row">
+                <div class="question-text">1. Sets in Python can contain duplicate elements.</div>
+                <button class="toggle-btn" onclick="toggleAnswer('tf1')">Show Answer</button>
+            </div>
+            <div id="tf1" class="answer-content"><span class="answer">(F)</span> - **Rationale:** Sets are defined as collections of **unique** elements.</div>
+        </div>
+        
+        <div class="question-container">
+            <div class="question-row">
+                <div class="question-text">2. The `len()` function is used to count the number of items in a set.</div>
+                <button class="toggle-btn" onclick="toggleAnswer('tf2')">Show Answer</button>
+            </div>
+            <div id="tf2" class="answer-content"><span class="answer">(T)</span></div>
+        </div>
+        
+        <div class="question-container">
+            <div class="question-row">
+                <div class="question-text">3. Sets can hold items of different data types.</div>
+                <button class="toggle-btn" onclick="toggleAnswer('tf3')">Show Answer</button>
+            </div>
+            <div id="tf3" class="answer-content"><span class="answer">(T)</span> - **Rationale:** Sets can hold heterogeneous data types (e.g., integers, strings, tuples).</div>
+        </div>
+
+        <div class="question-container">
+            <div class="question-row">
+                <div class="question-text">4. Elements in a set can be accessed using an index.</div>
+                <button class="toggle-btn" onclick="toggleAnswer('tf4')">Show Answer</button>
+            </div>
+            <div id="tf4" class="answer-content"><span class="answer">(F)</span> - **Rationale:** Sets are **unordered** and do not support indexing or slicing.</div>
+        </div>
+        
+        <div class="question-container">
+            <div class="question-row">
+                <div class="question-text">5. The `add()` method inserts a new element into a set.</div>
+                <button class="toggle-btn" onclick="toggleAnswer('tf5')">Show Answer</button>
+            </div>
+            <div id="tf5" class="answer-content"><span class="answer">(T)</span></div>
+        </div>
+
+        <div class="question-container">
+            <div class="question-row">
+                <div class="question-text">6. The `remove()` method does not raise an error if the element doesn’t exist.</div>
+                <button class="toggle-btn" onclick="toggleAnswer('tf6')">Show Answer</button>
+            </div>
+            <div id="tf6" class="answer-content"><span class="answer">(F)</span> - **Rationale:** The `remove()` method **does** raise a `KeyError`; the `discard()` method does not.</div>
+        </div>
+
+        <div class="question-container">
+            <div class="question-row">
+                <div class="question-text">7. The `|` operator performs a union between two sets.</div>
+                <button class="toggle-btn" onclick="toggleAnswer('tf7')">Show Answer</button>
+            </div>
+            <div id="tf7" class="answer-content"><span class="answer">(T)</span></div>
+        </div>
+
+        <div class="question-container">
+            <div class="question-row">
+                <div class="question-text">8. The intersection of two sets gives elements present in both.</div>
+                <button class="toggle-btn" onclick="toggleAnswer('tf8')">Show Answer</button>
+            </div>
+            <div id="tf8" class="answer-content"><span class="answer">(T)</span></div>
+        </div>
+
+        <div class="question-container">
+            <div class="question-row">
+                <div class="question-text">9. A `frozenset` is a mutable type of set.</div>
+                <button class="toggle-btn" onclick="toggleAnswer('tf9')">Show Answer</button>
+            </div>
+            <div id="tf9" class="answer-content"><span class="answer">(F)</span> - **Rationale:** A `frozenset` is an **immutable** version of a set.</div>
+        </div>
+
+        <div class="question-container">
+            <div class="question-row">
+                <div class="question-text">10. Lists, tuples, or strings can be converted into sets using `set()`.</div>
+                <button class="toggle-btn" onclick="toggleAnswer('tf10')">Show Answer</button>
+            </div>
+            <div id="tf10" class="answer-content"><span class="answer">(T)</span></div>
+        </div>
+    </div>
+
+    <div class="page-num">Page 2 of 3</div>
+
+    <hr>
+
+    <div class="question-section">
+        <h2>Part B - Multiple-Choice Questions</h2>
+        <p>Instructions: Choose the correct answer for each question.</p>
+
+        <div class="question-container">
+            <div class="question-row">
+                <div class="question-text">
+                    1. Which statement correctly creates an empty set?
+                    <div class="mcq-option">a) `{}`</div>
+                    <div class="mcq-option">b) `set()`</div>
+                    <div class="mcq-option">c) `[]`</div>
+                    <div class="mcq-option">d) `set([])`</div>
+                </div>
+                <button class="toggle-btn" onclick="toggleAnswer('mcq1')">Show Answer</button>
+            </div>
+            <div id="mcq1" class="answer-content"><span class="answer">b) `set()`</span> - **Rationale:** `{}` creates an empty dictionary, not an empty set.</div>
+        </div>
+
+        <div class="question-container">
+            <div class="question-row">
+                <div class="question-text">
+                    2. What happens when a duplicate element is added to a set?
+                    <div class="mcq-option">a) Raises an error</div>
+                    <div class="mcq-option">b) Ignored</div>
+                    <div class="mcq-option">c) Replaced</div>
+                    <div class="mcq-option">d) Duplicated</div>
+                </div>
+                <button class="toggle-btn" onclick="toggleAnswer('mcq2')">Show Answer</button>
+            </div>
+            <div id="mcq2" class="answer-content"><span class="answer">b) Ignored</span> - **Rationale:** Sets automatically maintain uniqueness, so duplicates are silently discarded.</div>
+        </div>
+
+        <div class="question-container">
+            <div class="question-row">
+                <div class="question-text">
+                    3. Which method removes and returns a random element?
+                    <div class="mcq-option">a) `pop()`</div>
+                    <div class="mcq-option">b) `remove()`</div>
+                    <div class="mcq-option">c) `delete()`</div>
+                    <div class="mcq-option">d) `discard()`</div>
+                </div>
+                <button class="toggle-btn" onclick="toggleAnswer('mcq3')">Show Answer</button>
+            </div>
+            <div id="mcq3" class="answer-content"><span class="answer">a) `pop()`</span> - **Rationale:** Since sets are unordered, `pop()` removes an arbitrary (random) element.</div>
+        </div>
+
+        <div class="question-container">
+            <div class="question-row">
+                <div class="question-text">
+                    4. What does `A & B` represent?
+                    <div class="mcq-option">a) Union</div>
+                    <div class="mcq-option">b) Difference</div>
+                    <div class="mcq-option">c) Intersection</div>
+                    <div class="mcq-option">d) Symmetric Difference</div>
+                </div>
+                <button class="toggle-btn" onclick="toggleAnswer('mcq4')">Show Answer</button>
+            </div>
+            <div id="mcq4" class="answer-content"><span class="answer">c) Intersection</span> - **Rationale:** The `&` operator finds elements common to both sets.</div>
+        </div>
+
+        <div class="question-container">
+            <div class="question-row">
+                <div class="question-text">
+                    5. Which method gives elements that exist in the first set but not in the second?
+                    <div class="mcq-option">a) `difference()`</div>
+                    <div class="mcq-option">b) `union()`</div>
+                    <div class="mcq-option">c) `intersection()`</div>
+                    <div class="mcq-option">d) `symmetric_difference()`</div>
+                </div>
+                <button class="toggle-btn" onclick="toggleAnswer('mcq5')">Show Answer</button>
+            </div>
+            <div id="mcq5" class="answer-content"><span class="answer">a) `difference()`</span> (or `A - B` operator).</div>
+        </div>
+
+        <div class="question-container">
+            <div class="question-row">
+                <div class="question-text">
+                    6. Which operation gives items that are in either set, but not both?
+                    <div class="mcq-option">a) `A | B`</div>
+                    <div class="mcq-option">b) `A & B`</div>
+                    <div class="mcq-option">c) `A - B`</div>
+                    <div class="mcq-option">d) `A ^ B`</div>
+                </div>
+                <button class="toggle-btn" onclick="toggleAnswer('mcq6')">Show Answer</button>
+            </div>
+            <div id="mcq6" class="answer-content"><span class="answer">d) `A ^ B`</span> - **Rationale:** The caret operator (`^`) performs the symmetric difference operation.</div>
+        </div>
+
+        <div class="question-container">
+            <div class="question-row">
+                <div class="question-text">
+                    7. The `discard()` method differs from `remove()` because it:
+                    <div class="mcq-option">a) Removes duplicates only</div>
+                    <div class="mcq-option">b) Ignores missing elements</div>
+                    <div class="mcq-option">c) Raises an error</div>
+                    <div class="mcq-option">d) Adds elements</div>
+                </div>
+                <button class="toggle-btn" onclick="toggleAnswer('mcq7')">Show Answer</button>
+            </div>
+            <div id="mcq7" class="answer-content"><span class="answer">b) Ignores missing elements</span> - **Rationale:** If the element is not found, `discard()` does nothing, while `remove()` raises a `KeyError`.</div>
+        </div>
+        
+        <div class="question-container">
+            <div class="question-row">
+                <div class="question-text">
+                    8. What is the output of `max({2, 4, 1, 5})`?
+                    <div class="mcq-option">a) 2</div>
+                    <div class="mcq-option">b) 1</div>
+                    <div class="mcq-option">c) 4</div>
+                    <div class="mcq-option">d) 5</div>
+                </div>
+                <button class="toggle-btn" onclick="toggleAnswer('mcq8')">Show Answer</button>
+            </div>
+            <div id="mcq8" class="answer-content"><span class="answer">d) 5</span></div>
+        </div>
+
+        <div class="question-container">
+            <div class="question-row">
+                <div class="question-text">
+                    9. Which of the following about `frozenset` is correct?
+                    <div class="mcq-option">a) It is immutable</div>
+                    <div class="mcq-option">b) It allows duplicates</div>
+                    <div class="mcq-option">c) It can be changed</div>
+                    <div class="mcq-option">d) It uses `add()`</div>
+                </div>
+                <button class="toggle-btn" onclick="toggleAnswer('mcq9')">Show Answer</button>
+            </div>
+            <div id="mcq9" class="answer-content"><span class="answer">a) It is immutable</span> - **Rationale:** `frozenset` is Python's immutable set type.</div>
+        </div>
+
+        <div class="question-container">
+            <div class="question-row">
+                <div class="question-text">
+                    10. Converting `[1, 2, 2, 3]` into a set results in:
+                    <div class="mcq-option">a) `{1, 2, 3}`</div>
+                    <div class="mcq-option">b) `{1, 2, 2, 3}`</div>
+                    <div class="mcq-option">c) `[1, 2, 3]`</div>
+                    <div class="mcq-option">d) `(1, 2, 3)`</div>
+                </div>
+                <button class="toggle-btn" onclick="toggleAnswer('mcq10')">Show Answer</button>
+            </div>
+            <div id="mcq10" class="answer-content"><span class="answer">a) `{1, 2, 3}`</span> - **Rationale:** The list is converted, and the duplicate `2` is removed.</div>
+        </div>
+    </div>
+    
+    <div class="page-num">Page 3 of 3</div>
+
+    <hr>
+
+    <div class="question-section">
+        <h2>Part C - Programming Tasks (Model Solutions)</h2>
+        <p>Instructions: Write and test the following small programs.</p>
+
+        <div class="question-container">
+            <div class="question-row">
+                <div class="question-text">1. Create a set called `colors` with "red", "green", "blue" and add "yellow".</div>
+                <button class="toggle-btn" onclick="toggleAnswer('pt1')">Show Answer</button>
+            </div>
+            <div id="pt1" class="answer-content">
+                <div class="code-block">colors = {"red", "green", "blue"}<br>colors.add("yellow")<br>print(colors)<br># Output: {'red', 'green', 'blue', 'yellow'} (order may vary)</div>
+            </div>
+        </div>
+
+        <div class="question-container">
+            <div class="question-row">
+                <div class="question-text">2. Write code to find the intersection of `{1, 2, 3}` and `{3, 4, 5}`.</div>
+                <button class="toggle-btn" onclick="toggleAnswer('pt2')">Show Answer</button>
+            </div>
+            <div id="pt2" class="answer-content">
+                <div class="code-block">set_a = {1, 2, 3}<br>set_b = {3, 4, 5}<br>intersection_result = set_a & set_b  # Using the operator<br># OR: intersection_result = set_a.intersection(set_b)<br>print(intersection_result)<br># Output: {3}</div>
+            </div>
+        </div>
+
+        <div class="question-container">
+            <div class="question-row">
+                <div class="question-text">3. Safely remove "apple" from a set called `fruits` without raising an error.</div>
+                <button class="toggle-btn" onclick="toggleAnswer('pt3')">Show Answer</button>
+            </div>
+            <div id="pt3" class="answer-content">
+                <div class="code-block">fruits = {"banana", "orange", "grape"}<br># Use discard() for safe removal<br>fruits.discard("apple")  # Does nothing if 'apple' is missing<br>fruits.discard("banana") # Removes 'banana'<br>print(fruits)<br># Output: {'orange', 'grape'} (order may vary)</div>
+            </div>
+        </div>
+
+        <div class="question-container">
+            <div class="question-row">
+                <div class="question-text">4. Display the maximum and minimum values from `{15, 5, 25, 10}`.</div>
+                <button class="toggle-btn" onclick="toggleAnswer('pt4')">Show Answer</button>
+            </div>
+            <div id="pt4" class="answer-content">
+                <div class="code-block">data = {15, 5, 25, 10}<br>max_val = max(data)<br>min_val = min(data)<br>print(f"Maximum value: {max_val}")<br>print(f"Minimum value: {min_val}")<br># Output: Maximum value: 25, Minimum value: 5</div>
+            </div>
+        </div>
+
+        <div class="question-container">
+            <div class="question-row">
+                <div class="question-text">5. Convert the tuple `(2, 4, 4, 6, 8)` into a set and print it.</div>
+                <button class="toggle-btn" onclick="toggleAnswer('pt5')">Show Answer</button>
+            </div>
+            <div id="pt5" class="answer-content">
+                <div class="code-block">my_tuple = (2, 4, 4, 6, 8)<br>my_set = set(my_tuple)<br>print(my_set)<br># Output: {8, 2, 4, 6} (order may vary, duplicates removed)</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleAnswer(id) {
+            var answerDiv = document.getElementById(id);
+            var button = answerDiv.previousElementSibling.querySelector('.toggle-btn');
+            
+            if (answerDiv.style.display === 'block' || answerDiv.style.display === '') {
+                answerDiv.style.display = 'none';
+                button.textContent = 'Show Answer';
+            } else {
+                answerDiv.style.display = 'block';
+                button.textContent = 'Hide Answer';
+            }
+        }
+    </script>
+
+</body>
+</html>
