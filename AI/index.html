@@ -1,353 +1,58 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>منصة تعليمية</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        /* الأنماط المدمجة والمحدثة لدعم البطاقات (Cards) */
-        :root {
-            --header-bg: #1f2937; /* Gray-800 */
-            --main-bg: #111827; /* Gray-900 */
-            --text-color: #f9fafb; /* Gray-50 */
-            --sidebar-bg: #1f2937; /* Gray-800 */
-            --accent-color: #3b82f6; /* Blue-500 */
-            --secondary-bg: #374151; /* Gray-700 */
-            --grid-gradient: linear-gradient(135deg, #232526, #414345); /* خلفية البطاقة */
-            --card-title-gradient: linear-gradient(90deg, #ff6a00, #ee0979); /* تدرج عنوان البطاقة */
-        }
-
-        .dark-mode {
-            background-color: var(--main-bg);
-            color: var(--text-color);
-            font-family: 'Cairo', sans-serif; /* استخدام خط Cairo */
-            transition: background-color 0.3s, color 0.3s;
-        }
-
-        .header-bg {
-            background-color: var(--header-bg);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-        }
-
-        .header-actions-right, .header-actions-left {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .action-button, .font-size-button {
-            padding: 0.5rem 0.75rem;
-            background-color: var(--secondary-bg);
-            color: var(--text-color);
-            border-radius: 0.5rem;
-            font-weight: 600;
-            transition: background-color 0.2s, transform 0.1s;
-        }
-
-        .action-button:hover, .font-size-button:hover {
-            background-color: var(--accent-color);
-        }
-
-        .home-button {
-            font-size: 1.5rem;
-            line-height: 1;
-        }
-
-        /* إخفاء القائمة الجانبية بالكامل لأننا سنستخدم البطاقات */
-        .sidebar, .sidebar-backdrop, .hamburger-menu {
-            display: none !important; 
-        }
-
-        .main-container {
-            padding-top: 5rem !important; /* تقليل المساحة بعد إزالة العنوان الفرعي */
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        /* --- أنماط صفحة البطاقات الرئيسية (Grid View) --- */
-        
-        #grid-view {
-            width: 100%;
-            max-width: 1200px;
-            padding: 2rem 0;
-        }
-
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 25px;
-            width: 100%;
-        }
-
-        .card {
-            background: var(--grid-gradient);
-            border-radius: 18px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.6);
-            padding: 30px;
-            text-align: center;
-            color: #bdc3c7;
-            text-decoration: none;
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
-            cursor: pointer;
-            display: block;
-        }
-
-        .card:hover {
-            transform: translateY(-8px) scale(1.03);
-            box-shadow: 0 12px 28px rgba(0,0,0,0.8), 0 0 15px #ff6a00aa; /* إضافة توهج */
-        }
-
-        .card h2 {
-            margin-top: 0;
-            font-size: 1.6em;
-            background: var(--card-title-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .card p { 
-            font-size: 1em; 
-            color: #95a5a6; 
-            margin-top: 0.5rem;
-        }
-
-        /* FAB Button */
-        .fab-container {
-            position: fixed;
-            bottom: 20px;
-            left: 20px; /* اليسار للـ RTL */
-            z-index: 100;
-        }
-
-        .fab-button {
-            display: none;
-            background-color: var(--accent-color);
-            color: white;
-            border: none;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            font-size: 1.5rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            cursor: pointer;
-            transition: background-color 0.3s, opacity 0.3s, transform 0.3s;
-        }
-
-        .fab-button:hover {
-            background-color: #2563eb;
-            transform: scale(1.1);
-        }
-
-        .fab-button svg {
-            width: 1.5rem;
-            height: 1.5rem;
-            margin: auto;
-        }
-
-        /* إخفاء H2 الذي كان يعرض العنوان الفرعي */
-        #current-tutorial-title {
-            display: none;
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منصة تعليمية</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
 </head>
 <body class="dark-mode">
 
-    <header class="header-bg text-white p-4 shadow-md">
-        <div class="header-actions-right">
-            <a href="index.html" id="back-to-home-button" class="action-button home-button" style="display: none;">
-                🏠
-            </a>
-        </div>
-        
-        <h1 class="text-xl md:text-2xl font-bold" id="header-title">منصة التعليم</h1>
-        
-        <div class="header-actions-left">
-            <button id="font-size-decrease" class="font-size-button">-</button>
-            <button id="font-size-increase" class="font-size-button">+</button>
-        </div>
-    </header>
+    <header class="header-bg text-white p-4 shadow-md">
+        <div class="header-actions-right">
+            <div class="hamburger-menu" id="hamburger-menu">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-6 w-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </div>
+            <button id="back-to-home-button" class="action-button home-button">
+                🏠
+            </button>
+        </div>
+        
+        <h1 class="text-xl md:text-2xl font-bold" id="header-title"></h1>
+        
+        <div class="header-actions-left">
+            <button id="font-size-decrease" class="font-size-button">-</button>
+            <button id="font-size-increase" class="font-size-button">+</button>
+        </div>
+    </header>
 
-    <main class="container mx-auto p-4 md:p-8 main-container" id="main-content">
-        </main>
+    <h2 id="current-tutorial-title" class="text-xl md:text-2xl font-bold text-center mt-20 md:mt-24 text-white"></h2>
 
-    <div class="fab-container">
-        <button id="scroll-to-top-button" class="fab-button scroll-to-top-fab">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
-            </svg>
-        </button>
-    </div>
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h2 class="text-center font-bold">القائمة</h2>
+        </div>
+        <nav class="flex flex-col flex-grow sidebar-nav-container">
+            </nav>
+    </aside>
+    <div class="sidebar-backdrop" id="sidebar-backdrop"></div>
 
-    <script>
-        
-        // ===================================
-        // محتوى data.js - تم تحديثه ليناسب أوراق عمل الذكاء الاصطناعي و Python
-        // ===================================
+    <main class="container mx-auto p-4 md:p-8 main-container">
+        </main>
 
-        const data = [
-            {
-                id: '1.html', 
-                title: 'مقدمة في الذكاء الاصطناعي (AI)',
-                description: 'مفاهيم الذكاء الاصطناعي، تعلم الآلة، التعلم العميق، والأبعاد الأخلاقية.',
-            },
-            {
-                id: 'Sheet 2.html', 
-                title: 'أساسيات Python (البيانات، الدوال، الاستثناءات)',
-                description: 'المتغيرات، القوائم، الثلاثيات (Tuples)، تعريف الدوال، والتعامل مع الأخطاء (try-except).',
-            },
-            {
-                id: 'Sheet 3 (Python Sets).html',
-                title: 'مجموعات Python (Sets) والعمليات عليها',
-                description: 'إنشاء المجموعات، الخصائص، العمليات الجبرية للمجموعات (الاتحاد، التقاطع، الفرق).',
-            },
-            {
-                id: 'Sheet 3 (Part 2).html',
-                title: 'مقارنات، عامل الهوية (is)، وقوائم Comprehension',
-                description: 'عبارات match-case، عوامل العضوية (in)، عامل الهوية (is)، وكيفية بناء القوائم المختصرة.',
-            },
-            {
-                id: 'Sheet 4 (Part 1).html',
-                title: 'مقارنة هياكل البيانات (List, Tuple, Set, Dict)',
-                description: 'جدول مقارنة شامل للعمليات والخصائص الأساسية لأربع هياكل بيانات في Python.',
-            },
-            {
-                id: 'Sheet 4 (Part 2).html',
-                title: 'ميزات Python المتقدمة (enumerate, zip, lambda, JSON, *args)',
-                description: 'الدوال المدمجة، دوال lambda، التعامل مع JSON، وتمرير عدد متغير من الوسائط.',
-            },
-            {
-                id: 'Sheet 5.html',
-                title: 'مكتبات علم البيانات (NumPy, Pandas, Matplotlib)',
-                description: 'أساسيات NumPy للمصفوفات، Pandas للـ DataFrames، و Matplotlib للرسوم البيانية.',
-            }
-        ];
+    <div class="fab-container">
+        <button id="scroll-to-top-button" class="fab-button scroll-to-top-fab">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+            </svg>
+        </button>
+    </div>
 
-        // ===================================
-        // محتوى app.js - تم تعديل المنطق
-        // ===================================
-
-        // تعريف المتغيرات العالمية
-        let currentFontSize = 16;
-        const FONT_SIZE_STEP = 2;
-        const MIN_FONT_SIZE = 12;
-        const MAX_FONT_SIZE = 24;
-        let currentView = 'grid'; // دائماً 'grid' في هذه الصفحة
-
-        // العناصر
-        const backToHomeButton = document.getElementById('back-to-home-button');
-        const fontSizeIncreaseButton = document.getElementById('font-size-increase');
-        const fontSizeDecreaseButton = document.getElementById('font-size-decrease');
-        const mainContent = document.getElementById('main-content');
-        const headerTitle = document.getElementById('header-title');
-        const scrollToTopButton = document.getElementById('scroll-to-top-button');
-        const bodyElement = document.body;
-        
-        // ------------------------------------
-        // وظائف صفحة البطاقات الرئيسية (Grid View)
-        // ------------------------------------
-
-        function displayGridView() {
-            currentView = 'grid';
-            headerTitle.textContent = 'منصة التعليم';
-            mainContent.classList.add('flex-col');
-            // التأكد من إخفاء زر العودة لأننا في الصفحة الرئيسية
-            backToHomeButton.style.display = 'none'; 
-
-            let gridHTML = '<div id="grid-view"><header class="text-center mb-10"><h1 class="text-3xl font-bold relative inline-block">اختر موضوعًا</h1></header><main class="grid-container">';
-            
-            data.forEach(tutorial => {
-                // تعديل هنا: أصبح الرابط يشير مباشرة إلى ملف HTML بالاسم المطابق لـ ID
-                gridHTML += `
-                    <a href="${tutorial.id}" class="card"> 
-                        <h2>${tutorial.title}</h2>
-                        <p>${tutorial.description}</p>
-                    </a>
-                `;
-            });
-
-            gridHTML += '</main></div>';
-            mainContent.innerHTML = gridHTML;
-
-            // تم إزالة إضافة معالجات الأحداث لـ .card
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        // تم حذف دالة loadTutorialContent(id) لعدم الحاجة إليها
-
-        // ------------------------------------
-        // وظائف التحكم بحجم الخط
-        // ------------------------------------
-
-        function updateFontSize() {
-            bodyElement.style.fontSize = `${currentFontSize}px`;
-        }
-
-        function increaseFontSize() {
-            if (currentFontSize < MAX_FONT_SIZE) {
-                currentFontSize += FONT_SIZE_STEP;
-                updateFontSize();
-            }
-        }
-
-        function decreaseFontSize() {
-            if (currentFontSize > MIN_FONT_SIZE) {
-                currentFontSize -= FONT_SIZE_STEP;
-                updateFontSize();
-            }
-        }
-
-        // ------------------------------------
-        // وظائف التمرير
-        // ------------------------------------
-
-        function checkScrollPosition() {
-            if (window.scrollY > 200) {
-                scrollToTopButton.style.display = 'block';
-            } else {
-                scrollToTopButton.style.display = 'none';
-            }
-        }
-
-        function scrollToTop() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        }
-
-        // ------------------------------------
-        // إعدادات البداية ومعالجات الأحداث
-        // ------------------------------------
-
-        function initializeApp() {
-            // 1. تحميل عرض البطاقات الافتراضي
-            displayGridView();
-
-            // 2. تطبيق حجم الخط الافتراضي
-            updateFontSize();
-
-            // 3. تعيين معالجات الأحداث
-            // ملاحظة: زر العودة 'back-to-home-button' أصبح الآن رابطاً ثابتاً (Hard Link) يشير إلى index.html، لذلك لا نحتاج لمعالج حدث له
-            
-            fontSizeIncreaseButton.addEventListener('click', increaseFontSize);
-            fontSizeDecreaseButton.addEventListener('click', decreaseFontSize);
-            scrollToTopButton.addEventListener('click', scrollToTop);
-            window.addEventListener('scroll', checkScrollPosition);
-        }
-
-        // بدء التطبيق عند تحميل الصفحة
-        window.addEventListener('load', initializeApp);
-
-    </script>
+    <script src="data.js"></script>
+    <script src="../app.js"></script>
 </body>
 </html>
