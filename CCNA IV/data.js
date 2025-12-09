@@ -14,6 +14,21 @@ const quizData = {
             { type: 'mcq', q: "9. Which device forwards packets based on a routing table?", options: ["Switch", "Hub", "Router", "Bridge"], correct: 2 }
         ]
     },
+    'Sheet-2': {
+        title: "Sheet-2 - WAN Concepts",
+        data: [
+            { type: 'mcq', q: "1. What does WAN stand for?", options: ["Wide Area Network", "Wireless Access Node", "Wired Aggregation Network", "Wide Application Node"], correct: 0 },
+            { type: 'mcq', q: "2. Which WAN topology uses a single hub router to which all spokes connect?", options: ["Point-to-Point Topology", "Hub-and-Spoke Topology", "Dual-homed Topology", "Partially Meshed Topology"], correct: 1 },
+            { type: 'mcq', q: "3. Which of the following is a benefit of a private WAN?", options: ["Guaranteed service level", "Variable bandwidth", "Shared security", "No service fees"], correct: 0 },
+            { type: 'mcq', q: "4. In a single-carrier WAN connection, an organization connects to how many service providers?", options: ["One", "Two", "Three", "Four"], correct: 0 },
+            { type: 'mcq', q: "5. Which WAN topology is described as the most fault-tolerant?", options: ["Fully Meshed Topology", "Point-to-Point Topology", "Hub-and-Spoke Topology", "Dual-homed Topology"], correct: 0 },
+            { type: 'mcq', q: "6. What does DTE stand for in WAN terminology?", options: ["Data Terminal Equipment", "Data Transfer Entity", "Digital Transmission Endpoint", "Direct Transfer Engine"], correct: 0 },
+            { type: 'mcq', q: "7. Which term describes the point where the subscriber connects to the service provider network?", options: ["Customer Premises Equipment (CPE)", "Demarcation Point", "Point-of-Presence (POP)", "Central Office (CO)"], correct: 2 },
+            { type: 'mcq', q: "8. What type of communication transmits bits sequentially over a single channel?", options: ["Parallel communication", "Serial communication", "Synchronous communication", "Fiber-optic communication"], correct: 1 },
+            { type: 'mcq', q: "9. Which WAN technology establishes a dedicated circuit before data is sent?", options: ["Packet-switched communication", "Circuit-switched communication", "Ethernet WAN", "MPLS"], correct: 1 },
+            { type: 'mcq', q: "10. The copper or fiber cable that connects the CPE to the service provider’s CO is called the:", options: ["Local Loop", "Backbone", "Drop line", "Service edge"], correct: 0 }
+        ]
+    },
     'Sheet-7': {
         title: "Sheet-7 - VPN & IPsec Exam",
         data: [
