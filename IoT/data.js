@@ -1,7 +1,8 @@
 const quizData = {
     courseTitle: "IoT",
+    
     'tutorial-1': {
-        title: "Tutorial 1",
+        title: "Tutorial 1: Introduction",
         data: [
             { type: 'fill', q: "33. MQTT operates on a _________ / _________ communication model, where devices publish data to a broker and other devices subscribe to receive it.", answer: "Publish / Subscribe" },
             { type: 'fill', q: "34. Compared to HTTP, MQTT consumes _________ bandwidth and is more suitable for _________ devices.", answer: "Less; low-power or constrained" },
@@ -15,7 +16,7 @@ const quizData = {
     },
 
     'tutorial-2': {
-        title: "Tutorial 2",
+        title: "Tutorial 2: Protocols & Layers",
         data: [
             { type: 'fill', q: "1. HTTP uses the __________ communication model, where a client sends a request and the server responds.", answer: "Request–Response" },
             { type: 'fill', q: "2. In MQTT, the component that manages message routing between publishers and subscribers is called the __________.", answer: "Broker" },
@@ -36,7 +37,7 @@ const quizData = {
     },
 
     'tutorial-3': {
-        title: "Tutorial 3",
+        title: "Tutorial 3: Arduino Basics",
         data: [
             { type: 'fill', q: "1. An edge device in an IoT system is used to sense, process, and send __________.", answer: "Data locally" },
             { type: 'fill', q: "2. The main microcontroller used in the Arduino Uno board is __________.", answer: "ATmega328P" },
@@ -57,7 +58,7 @@ const quizData = {
     },
 
     'tutorial-4': {
-        title: "Tutorial 4",
+        title: "Tutorial 4: Raspberry Pi & Python",
         data: [
             { type: 'fill', q: "1. A Raspberry Pi is best described as a __________ that can run an operating system.", answer: "A single-board computer that can run an operating system" },
             { type: 'fill', q: "2. The abbreviation GPIO stands for __________.", answer: "General Purpose Input/Output" },
@@ -78,7 +79,7 @@ const quizData = {
     },
 
     'tutorial-5': {
-        title: "Tutorial 5",
+        title: "Tutorial 5: IoT Architecture Layers",
         data: [
             { type: 'fill', q: "1. The primary role of the edge layer in IoT is __________.", answer: "Sensor data collection and initial processing" },
             { type: 'fill', q: "2. The fog layer in IoT architecture acts as a __________.", answer: "Local gateway or intermediate processing node" },
@@ -98,10 +99,72 @@ const quizData = {
         ]
     },
 
-    'tutorial-REV': {
-        title: "Review (مراجعة شاملة وعشوائية)",
+    'tutorial-6': {
+        title: "Tutorial 6: Data Analytics",
         data: [
-            // 68 سؤالاً بترتيب عشوائي وترقيم متسلسل من 1 إلى 68
+            { type: 'fill', q: "1. IoT data is best described as __________.", answer: "Time-stamped, continuous, and machine-generated" },
+            { type: 'fill', q: "2. The most common format used for transmitting IoT data is __________.", answer: "JSON" },
+            { type: 'fill', q: "3. Time-series data represents __________.", answer: "Sensor data indexed by time" },
+            { type: 'fill', q: "4. A cloud-based IoT data visualization platform is __________.", answer: "Thingspeak" },
+            { type: 'fill', q: "5. The Python library commonly used for data analysis is __________.", answer: "pandas" },
+            { type: 'fill', q: "6. The type of database that InfluxDB represents is __________.", answer: "Time-Series" },
+            { type: 'fill', q: "7. The data format that is human-readable and lightweight is __________.", answer: "JSON" },
+            { type: 'fill', q: "8. A benefit of performing data analytics in the fog layer is __________.", answer: "Reduces latency and cloud costs" },
+            { type: 'fill', q: "9. The tool that can generate interactive IoT dashboards is __________.", answer: "Grafana" },
+            { type: 'fill', q: "10. The purpose of data cleaning in IoT analytics is __________.", answer: "To ensure data accuracy and reliability" },
+            { type: 'fill', q: "11. The Python library used to visualize data through graphs is __________.", answer: "matplotlib" },
+            { type: 'fill', q: "12. The database typically used for simple IoT storage on Raspberry Pi is __________.", answer: "SQLite" },
+            { type: 'fill', q: "13. The acronym CSV stands for __________.", answer: "Comma Separated Values" },
+            { type: 'fill', q: "14. The Python command that writes IoT data into a file is __________.", answer: "write()" },
+            { type: 'fill', q: "15. The step that comes last in the IoT data lifecycle is __________.", answer: "Visualization and Action" }
+        ]
+    },
+
+    'tutorial-7': {
+        title: "Tutorial 7: IoT Security",
+        data: [
+            { type: 'fill', q: "1. The “C” in the CIA security triad stands for __________.", answer: "Confidentiality" },
+            { type: 'fill', q: "2. The protocol that adds TLS encryption to MQTT communication is __________.", answer: "MQTTS" },
+            { type: 'fill', q: "3. A symmetrical encryption algorithm used in IoT is __________.", answer: "AES" },
+            { type: 'fill', q: "4. The main purpose of firmware signing is __________.", answer: "To authenticate software origin" },
+            { type: 'fill', q: "5. The Mirai botnet attack exploited __________.", answer: "Weak default passwords on IoT devices" },
+            { type: 'fill', q: "6. The IoT security measure that ensures data is not altered during transmission is __________.", answer: "Integrity" },
+            { type: 'fill', q: "7. TLS operates at the __________ layer of the OSI model.", answer: "Transport" },
+            { type: 'fill', q: "8. Multi-factor authentication (MFA) requires __________.", answer: "Two or more verification factors" },
+            { type: 'fill', q: "9. The IoT security principle that ensures users have only the permissions they need is __________.", answer: "Role-based access control (RBAC)" },
+            { type: 'fill', q: "10. CoAPS is the secured version of the __________ protocol.", answer: "CoAP" },
+            { type: 'fill', q: "11. The following is NOT a recommended IoT security practice: __________.", answer: "Open APIs without authentication" },
+            { type: 'fill', q: "12. The acronym OWASP stands for __________.", answer: "Open Web Application Security Project" },
+            { type: 'fill', q: "13. The cryptographic method that uses public and private keys is __________.", answer: "Asymmetric encryption" },
+            { type: 'fill', q: "14. GDPR primarily protects __________.", answer: "Personal data of EU citizens" },
+            { type: 'fill', q: "15. Data availability in IoT systems is ensured by __________.", answer: "Redundant systems and fail-over mechanisms" }
+        ]
+    },
+
+    'tutorial-8': {
+        title: "Tutorial 8: Case Studies & Design",
+        data: [
+            { type: 'fill', q: "1. An example of an IoT application in agriculture is __________.", answer: "Soil moisture monitoring and automated irrigation" },
+            { type: 'fill', q: "2. The component that acts as the edge device in a smart greenhouse system is __________.", answer: "Arduino with sensors" },
+            { type: 'fill', q: "3. In an IoT system, the fog layer is typically represented by __________.", answer: "Raspberry Pi or Gateway" },
+            { type: 'fill', q: "4. The cloud layer in IoT plays the role of __________.", answer: "Long-term data storage and analytics" },
+            { type: 'fill', q: "5. The protocol commonly used for IoT data upload to cloud dashboards is __________.", answer: "MQTT" },
+            { type: 'fill', q: "6. The free platform most often used for cloud-based IoT visualization is __________.", answer: "Thingspeak" },
+            { type: 'fill', q: "7. In a smart home application, the device that usually controls lighting systems is __________.", answer: "Arduino microcontroller" },
+            { type: 'fill', q: "8. The most important design step before starting an IoT project is __________.", answer: "Drawing the system architecture diagram" },
+            { type: 'fill', q: "9. A key advantage of using fog computing in IoT is __________.", answer: "Reduced bandwidth and latency" },
+            { type: 'fill', q: "10. A tool that can be used to visualize IoT data locally on Raspberry Pi is __________.", answer: "Matplotlib" },
+            { type: 'fill', q: "11. In an IoT project, the component that handles decision logic or automation is __________.", answer: "Gateway/Fog node" },
+            { type: 'fill', q: "12. The software design practice that improves IoT system scalability is __________.", answer: "Modular programming and reusable functions" },
+            { type: 'fill', q: "13. The best way to protect IoT data during cloud upload is __________.", answer: "Use TLS encryption (HTTPS or MQTTS)" },
+            { type: 'fill', q: "14. A key evaluation metric for IoT project performance is __________.", answer: "Response time and reliability" },
+            { type: 'fill', q: "15. The document that summarizes an IoT project’s system design, data flow, and results is __________.", answer: "Project Report" }
+        ]
+    },
+
+    'tutorial-REV': {
+        title: "Review (مراجعة شاملة)",
+        data: [
             { type: 'fill', q: "1. Every Arduino program (sketch) includes two main functions: __________ and __________.", answer: "setup(), loop()" },
             { type: 'fill', q: "2. The main role of the ADC (Analog-to-Digital Converter) in Arduino is to convert analog signals into __________ data.", answer: "Digital" },
             { type: 'fill', q: "3. The primary role of the edge layer in IoT is __________.", answer: "Sensor data collection and initial processing" },
