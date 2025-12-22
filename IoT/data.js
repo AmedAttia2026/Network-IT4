@@ -2,7 +2,7 @@ const quizData = {
     courseTitle: "IoT",
     
     'tutorial-1': {
-        title: "Tutorial 1: Introduction",
+        title: "Tutorial 1",
         data: [
             { type: 'fill', q: "33. MQTT operates on a _________ / _________ communication model, where devices publish data to a broker and other devices subscribe to receive it.", answer: "Publish / Subscribe" },
             { type: 'fill', q: "34. Compared to HTTP, MQTT consumes _________ bandwidth and is more suitable for _________ devices.", answer: "Less; low-power or constrained" },
@@ -16,7 +16,7 @@ const quizData = {
     },
 
     'tutorial-2': {
-        title: "Tutorial 2: Protocols & Layers",
+        title: "Tutorial 2",
         data: [
             { type: 'fill', q: "1. HTTP uses the __________ communication model, where a client sends a request and the server responds.", answer: "Request–Response" },
             { type: 'fill', q: "2. In MQTT, the component that manages message routing between publishers and subscribers is called the __________.", answer: "Broker" },
@@ -37,7 +37,7 @@ const quizData = {
     },
 
     'tutorial-3': {
-        title: "Tutorial 3: Arduino Basics",
+        title: "Tutorial 3",
         data: [
             { type: 'fill', q: "1. An edge device in an IoT system is used to sense, process, and send __________.", answer: "Data locally" },
             { type: 'fill', q: "2. The main microcontroller used in the Arduino Uno board is __________.", answer: "ATmega328P" },
@@ -58,7 +58,7 @@ const quizData = {
     },
 
     'tutorial-4': {
-        title: "Tutorial 4: Raspberry Pi & Python",
+        title: "Tutorial 4",
         data: [
             { type: 'fill', q: "1. A Raspberry Pi is best described as a __________ that can run an operating system.", answer: "A single-board computer that can run an operating system" },
             { type: 'fill', q: "2. The abbreviation GPIO stands for __________.", answer: "General Purpose Input/Output" },
@@ -79,7 +79,7 @@ const quizData = {
     },
 
     'tutorial-5': {
-        title: "Tutorial 5: IoT Architecture Layers",
+        title: "Tutorial 5",
         data: [
             { type: 'fill', q: "1. The primary role of the edge layer in IoT is __________.", answer: "Sensor data collection and initial processing" },
             { type: 'fill', q: "2. The fog layer in IoT architecture acts as a __________.", answer: "Local gateway or intermediate processing node" },
@@ -100,7 +100,7 @@ const quizData = {
     },
 
     'tutorial-6': {
-        title: "Tutorial 6: Data Analytics",
+        title: "Tutorial 6",
         data: [
             { type: 'fill', q: "1. IoT data is best described as __________.", answer: "Time-stamped, continuous, and machine-generated" },
             { type: 'fill', q: "2. The most common format used for transmitting IoT data is __________.", answer: "JSON" },
@@ -121,7 +121,7 @@ const quizData = {
     },
 
     'tutorial-7': {
-        title: "Tutorial 7: IoT Security",
+        title: "Tutorial 7",
         data: [
             { type: 'fill', q: "1. The “C” in the CIA security triad stands for __________.", answer: "Confidentiality" },
             { type: 'fill', q: "2. The protocol that adds TLS encryption to MQTT communication is __________.", answer: "MQTTS" },
@@ -142,7 +142,7 @@ const quizData = {
     },
 
     'tutorial-8': {
-        title: "Tutorial 8: Case Studies & Design",
+        title: "Tutorial 8",
         data: [
             { type: 'fill', q: "1. An example of an IoT application in agriculture is __________.", answer: "Soil moisture monitoring and automated irrigation" },
             { type: 'fill', q: "2. The component that acts as the edge device in a smart greenhouse system is __________.", answer: "Arduino with sensors" },
@@ -236,3 +236,4 @@ const quizData = {
         ]
     }
 };
+
